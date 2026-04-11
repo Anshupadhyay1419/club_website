@@ -1,123 +1,117 @@
 'use client'
 
+import dynamic from 'next/dynamic'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
+
+const SplineHero = dynamic(() => import('./SplineHero'), { ssr: false })
 
 const ease = [0.16, 1, 0.3, 1] as const
 
 export default function HeroSection() {
   return (
-    <section className="relative min-h-screen flex flex-col overflow-hidden" style={{ background: '#02020e' }}>
+    <section className="relative min-h-screen flex flex-col overflow-hidden" style={{ background: '#0d0d1a' }}>
 
-      {/* Spline 3D background — replaces video */}
-      <div className="absolute inset-0 z-0">
-        {/* @ts-expect-error spline-viewer is a web component */}
-        <spline-viewer url="https://prod.spline.design/oTZTab4A1lBMayei/scene.splinecode" style={{ width: '100%', height: '100%' }} />
-      </div>
-      {/* Subtle dark overlay so text stays readable */}
-      <div className="absolute inset-0 bg-black/30" aria-hidden="true" />
+      {/* Spline 3D — robot that follows cursor */}
+      <SplineHero />
 
-      <div className="relative z-10 flex-1 flex flex-col items-start justify-center text-left px-12 md:px-20 lg:px-28 pt-24 pb-32 max-w-3xl">
+      {/* Subtle overlay */}
+      <div className="absolute inset-0 bg-black/20 z-[1]" aria-hidden="true" />
 
-        <motion.div
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.15 }}
-          className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full mb-8"
-          style={{ background: 'rgba(36, 84, 255, 0.08)', border: '1px solid rgba(0, 115, 255, 0.2)' }}
-        >
-          <span className="w-1.5 h-1.5 rounded-full bg-blue-400 animate-pulse" />
-          <span className="text-[12px] font-bold tracking-[0.2em] uppercase text-blue-800/100">
-            Bennett University Club · Est. 2025
-          </span>
-        </motion.div>
+      {/* Hero content — centered like friend's design */}
+      <div className="relative z-10 flex-1 flex flex-col items-center justify-center text-center px-6 pt-16 pb-24">
 
+        {/* Big display title — Outfit font, ultra thin */}
         <motion.h1
-          initial={{ opacity: 0, y: 28 }}
+          initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.9, delay: 0.25, ease }}
-          className="font-bold leading-none tracking-[-0.04em] text-white mb-4"
+          transition={{ duration: 1.2, delay: 0.3, ease }}
           style={{
-            fontFamily: 'var(--font-space-grotesk)',
-            fontSize: 'clamp(3.2rem, 10vw, 8rem)',
-            textShadow: '0 0 80px rgba(80,160,255,0.25)',
+            fontFamily: 'var(--font-outfit)',
+            fontWeight: 200,
+            fontSize: 'clamp(5rem, 15vw, 12rem)',
+            lineHeight: 1,
+            letterSpacing: '-0.04em',
+            background: 'linear-gradient(180deg, #ffffff 0%, rgba(200,210,230,0.7) 50%, rgba(120,140,180,0.4) 100%)',
+            WebkitBackgroundClip: 'text',
+            WebkitTextFillColor: 'transparent',
+            backgroundClip: 'text',
           }}
         >
           RoboGenesis
         </motion.h1>
 
+        {/* Subtitle */}
         <motion.p
-          initial={{ opacity: 0, y: 18 }}
+          initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.4, ease }}
-          className="font-bold tracking-wide text-white/90 mb-5"
+          transition={{ duration: 1, delay: 0.6, ease }}
           style={{
-            fontFamily: 'var(--font-space-grotesk)',
-            fontSize: 'clamp(1rem, 2.5vw, 2rem)',
-            letterSpacing: '0.08em',
+            fontFamily: 'var(--font-inter)',
+            fontWeight: 300,
+            fontSize: 'clamp(0.9rem, 1.8vw, 1.125rem)',
+            color: 'rgba(240,240,245,0.55)',
+            lineHeight: 1.7,
+            maxWidth: '420px',
+            letterSpacing: '0.01em',
+            marginTop: '24px',
           }}
         >
-           We Build
+          Where engineering meets imagination —<br />
+          crafting the robots of tomorrow
         </motion.p>
 
-        <motion.p
-          initial={{ opacity: 0, y: 12 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.55 }}
-          className="text-[16px] text-white/80 max-w-md leading-relaxed mb-10"
-        >
-          A student-led community at the frontier of robotics, AI, and embedded systems.
-          We build, compete, and push boundaries.
-        </motion.p>
-
+        {/* CTA */}
         <motion.div
-          initial={{ opacity: 0, y: 12 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.68 }}
-          className="flex flex-col sm:flex-row items-center gap-3"
+          transition={{ duration: 1, delay: 0.9, ease }}
+          className="flex items-center gap-4 mt-8"
         >
           <Link
             href="/projects"
-            className="inline-flex items-center gap-2 px-7 py-3.5 rounded-lg text-[14px] font-semibold text-white min-h-[44px] transition-all duration-200"
+            className="inline-flex items-center justify-center px-8 py-3.5 rounded-full text-[0.9rem] font-normal text-white min-h-[44px] transition-all duration-300"
             style={{
-              background: 'linear-gradient(135deg, rgba(60,130,255,0.9), rgba(40,100,220,0.9))',
-              boxShadow: '0 0 24px rgba(60,130,255,0.3), inset 0 1px 0 rgba(255,255,255,0.1)',
+              border: '1px solid rgba(255,255,255,0.2)',
+              background: 'rgba(255,255,255,0.04)',
+              backdropFilter: 'blur(10px)',
+              letterSpacing: '0.02em',
             }}
-            onMouseEnter={e => { (e.currentTarget as HTMLElement).style.boxShadow = '0 0 40px rgba(60,130,255,0.55), inset 0 1px 0 rgba(255,255,255,0.15)' }}
-            onMouseLeave={e => { (e.currentTarget as HTMLElement).style.boxShadow = '0 0 24px rgba(60,130,255,0.3), inset 0 1px 0 rgba(255,255,255,0.1)' }}
           >
             Explore Projects
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
-              <path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
           </Link>
-
           <Link
             href="/contact"
-            className="inline-flex items-center px-7 py-3.5 rounded-lg text-[14px] font-medium text-white/90 min-h-[44px] transition-all duration-200 hover:text-white/90"
-            style={{ border: '1px solid rgba(255,255,255,0.1)', background: 'rgba(255,255,255,0.03)' }}
-            onMouseEnter={e => { (e.currentTarget as HTMLElement).style.borderColor = 'rgba(80,160,255,0.35)'; (e.currentTarget as HTMLElement).style.background = 'rgba(80,160,255,0.06)' }}
-            onMouseLeave={e => { (e.currentTarget as HTMLElement).style.borderColor = 'rgba(255,255,255,0.1)'; (e.currentTarget as HTMLElement).style.background = 'rgba(255,255,255,0.03)' }}
+            className="inline-flex items-center justify-center px-8 py-3.5 rounded-full text-[0.9rem] font-normal min-h-[44px] transition-all duration-300"
+            style={{
+              background: 'linear-gradient(135deg, rgba(77,142,255,0.8), rgba(167,139,250,0.8))',
+              color: '#fff',
+              letterSpacing: '0.02em',
+            }}
           >
             Join the Club
           </Link>
         </motion.div>
       </div>
 
+      {/* Bottom tagline */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 1.6 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 z-10"
-        aria-hidden="true"
+        transition={{ delay: 1.2 }}
+        className="absolute bottom-0 left-0 right-0 z-10 flex items-center justify-center py-6"
+        style={{ borderTop: '1px solid rgba(255,255,255,0.06)', background: 'linear-gradient(0deg, rgba(5,5,16,0.8) 0%, transparent 100%)' }}
       >
-        <span className="text-[9px] tracking-[0.3em] uppercase text-white/20 font-medium">Scroll</span>
-        <motion.div
-          className="w-px h-8"
-          style={{ background: 'linear-gradient(to bottom, rgba(80,160,255,0.4), transparent)' }}
-          animate={{ scaleY: [0.3, 1, 0.3], opacity: [0.3, 0.7, 0.3] }}
-          transition={{ repeat: Infinity, duration: 2.4, ease: 'easeInOut' }}
-        />
+        <p style={{
+          fontFamily: 'var(--font-outfit)',
+          fontWeight: 300,
+          fontSize: 'clamp(0.85rem, 1.5vw, 1rem)',
+          color: 'rgba(240,240,245,0.3)',
+          letterSpacing: '0.15em',
+          textTransform: 'lowercase',
+        }}>
+          we build with passion
+        </p>
       </motion.div>
     </section>
   )

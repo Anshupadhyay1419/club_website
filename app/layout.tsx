@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Space_Grotesk, Inter } from 'next/font/google'
+import { Space_Grotesk, Inter, Outfit } from 'next/font/google'
 import { LazyMotion, domAnimation } from 'framer-motion'
 import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
@@ -8,6 +8,13 @@ import PageTransition from '@/components/layout/PageTransition'
 import ThemeProvider from '@/components/layout/ThemeProvider'
 import MeshBackground from '@/components/layout/MeshBackground'
 import './globals.css'
+
+const outfit = Outfit({
+  variable: '--font-outfit',
+  subsets: ['latin'],
+  weight: ['200', '300', '400'],
+  display: 'swap',
+})
 
 const spaceGrotesk = Space_Grotesk({
   variable: '--font-space-grotesk',
@@ -38,7 +45,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className={`${spaceGrotesk.variable} ${inter.variable}`} suppressHydrationWarning>
+    <html lang="en" className={`${spaceGrotesk.variable} ${inter.variable} ${outfit.variable}`} suppressHydrationWarning>
       <head>
         <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.82/build/spline-viewer.js" async></script>
       </head>
