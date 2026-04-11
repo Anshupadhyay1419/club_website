@@ -50,17 +50,16 @@ export default function HeroSection() {
           transition={{ duration: 1, delay: 0.6, ease }}
           style={{
             fontFamily: 'var(--font-inter)',
-            fontWeight: 300,
+            fontWeight: 400,
             fontSize: 'clamp(0.9rem, 1.8vw, 1.125rem)',
-            color: 'rgba(240,240,245,0.55)',
+            color: 'rgba(255, 255, 255, 0.71)',
             lineHeight: 1.7,
-            maxWidth: '420px',
+            maxWidth: '450px',
             letterSpacing: '0.01em',
-            marginTop: '24px',
+            marginTop: '30px',
           }}
         >
-          Where engineering meets imagination —<br />
-          crafting the robots of tomorrow
+          We Build
         </motion.p>
 
         {/* Buttons — re-enable pointer events only on buttons */}

@@ -1,16 +1,15 @@
 import HeroSection from '@/components/home/HeroSection'
+import TeamCarousel from '@/components/home/TeamCarousel'
 import AboutPreview from '@/components/home/AboutPreview'
-import FeaturedProjects from '@/components/home/FeaturedProjects'
 import UpcomingEventsPreview from '@/components/home/UpcomingEventsPreview'
-import { projects } from '@/data/projects'
 import { events } from '@/data/events'
 
 export default function HomePage() {
   return (
     <>
       <HeroSection />
+      <TeamCarousel />
       <AboutPreview />
-      <FeaturedProjects projects={projects} />
       <UpcomingEventsPreview events={events} />
     </>
   )
