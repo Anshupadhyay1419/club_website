@@ -55,7 +55,7 @@ export default function Navbar() {
       <nav className="max-w-7xl mx-auto px-6 lg:px-10 flex items-center justify-between h-full">
 
         {/* University logo */}
-        <a href="https://www.bennett.edu.in/" target="_blank" rel="noopener noreferrer" aria-label="Bennett University">
+        <a href="https://www.bennett.edu.in/" target="_blank" rel="noopener noreferrer" aria-label="Bennett University" className="mr-8">
           <Image src="/uni_logo.jpg" alt="University logo" width={90} height={48} className="w-auto object-contain flex-shrink-0" style={{ height: '44px' }} />
         </a>
 
