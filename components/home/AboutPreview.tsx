@@ -8,50 +8,29 @@ const pillars = [
   { title: 'Research & Innovation', desc: 'Hackathons, competitions, published research.', num: '04' },
 ]
 
-const stats = [
-  { value: '10+', label: 'Core Members' },
-  { value: '2+', label: 'Projects Built' },
-  { value: '5+', label: 'Faculty Mentors' },
-  { value: '1', label: 'Upcoming Event' },
-]
-
 export default function AboutPreview() {
   return (
     <section className="py-32 px-6 max-w-7xl mx-auto section-glow relative">
       <ScrollReveal>
-        <div className="flex flex-col lg:flex-row gap-16 items-start mb-20">
-          {/* Left */}
-          <div className="flex-1">
-            <div className="badge mb-6">
-              <span className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ background: 'var(--accent)' }} />
-              About Us
-            </div>
-            <h2 className="text-[clamp(1.5rem,3.5vw,2.5rem)] font-black tracking-tight leading-[1.1] mb-6"
-              style={{ fontFamily: 'var(--font-space-grotesk)', color: 'var(--text-primary)' }}>
-              Where engineering<br />
-              <span className="gradient-text">meets ambition</span>
-            </h2>
-            <p className="text-sm leading-relaxed mb-6 max-w-lg" style={{ color: 'var(--text-secondary)' }}>
-              RoboGenesis is a student-led tech club at the forefront of robotics and AI.
-              We build real-world systems, host workshops and events.
-            </p>
-            <Link href="/about"
-              className="inline-flex items-center gap-3 px-6 py-3 rounded-xl font-bold text-sm transition-all duration-200 btn-gradient">
-              <span>Discover Our Story</span>
-              <span>→</span>
-            </Link>
+        <div className="max-w-2xl mb-16">
+          <div className="badge mb-6">
+            <span className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ background: 'var(--accent)' }} />
+            About Us
           </div>
-
-          {/* Right — Stats */}
-          <div className="grid grid-cols-2 gap-4 lg:w-80 flex-shrink-0">
-            {stats.map((s) => (
-              <div key={s.label} className="glass rounded-2xl p-6 text-center gradient-border">
-                <div className="text-3xl font-black mb-1 gradient-text"
-                  style={{ fontFamily: 'var(--font-space-grotesk)' }}>{s.value}</div>
-                <div className="text-xs font-semibold uppercase tracking-wider" style={{ color: 'var(--text-muted)' }}>{s.label}</div>
-              </div>
-            ))}
-          </div>
+          <h2 className="text-[clamp(1.5rem,3.5vw,2.5rem)] font-black tracking-tight leading-[1.1] mb-6"
+            style={{ fontFamily: 'var(--font-space-grotesk)', color: 'var(--text-primary)' }}>
+            Where engineering<br />
+            <span className="gradient-text">meets ambition</span>
+          </h2>
+          <p className="text-sm leading-relaxed mb-6 max-w-lg" style={{ color: 'var(--text-secondary)' }}>
+            RoboGenesis is a student-led tech club at the forefront of robotics and AI.
+            We build real-world systems, host workshops and events.
+          </p>
+          <Link href="/about"
+            className="inline-flex items-center gap-3 px-6 py-3 rounded-xl font-bold text-sm transition-all duration-200 btn-gradient">
+            <span>Discover Our Story</span>
+            <span>→</span>
+          </Link>
         </div>
       </ScrollReveal>
 
