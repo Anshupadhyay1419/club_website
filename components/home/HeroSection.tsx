@@ -15,8 +15,8 @@ export default function HeroSection() {
       {/* Spline 3D — robot that follows cursor */}
       <SplineHero />
 
-      {/* Subtle overlay */}
-      <div className="absolute inset-0 bg-black/20 z-[1]" aria-hidden="true" />
+      {/* Subtle overlay — pointer-events-none so Spline gets all mouse events */}
+      <div className="absolute inset-0 bg-black/20 z-[1] pointer-events-none" aria-hidden="true" />
 
       {/* Hero content — centered like friend's design */}
       <div className="relative z-10 flex-1 flex flex-col items-center justify-center text-center px-6 pt-16 pb-24">

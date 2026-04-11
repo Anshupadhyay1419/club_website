@@ -47,7 +47,6 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${spaceGrotesk.variable} ${inter.variable} ${outfit.variable}`} suppressHydrationWarning>
       <head>
-        <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.82/build/spline-viewer.js" async></script>
       </head>
       <body className="min-h-screen flex flex-col overflow-x-hidden" style={{ backgroundColor: 'var(--bg)', color: 'var(--text-primary)' }} suppressHydrationWarning>
         <ThemeProvider>
