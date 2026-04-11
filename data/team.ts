@@ -82,15 +82,6 @@ export const teamMembers: TeamMember[] = [
     linkedinUrl: '',
     githubUrl: '',
   },
-  {
-    id: 't10',
-    name: 'Utkrisht Suman',
-    role: 'Tech Sub Head',
-    photo: '/images/team/Utkrisht.jpeg',
-    skills: [],
-    linkedinUrl: '',
-    githubUrl: '',
-  },
 ]
 
 export const facultyMembers: FacultyMember[] = [
