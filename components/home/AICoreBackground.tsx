@@ -95,7 +95,8 @@ export default function AICoreBackground() {
 
     const sp = sphere(64,64)
     const pBuf = buf(gl,sp.pos); const uvBuf = buf(gl,sp.uv); const nBuf = buf(gl,sp.norm)
-    const iBuf = buf(gl, sp.idx as BufferSource, gl.ELEMENT_ARRAY_BUFFER)
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const iBuf = buf(gl, sp.idx as any, gl.ELEMENT_ARRAY_BUFFER as any)
     const st = stars(900)
     const spBuf = buf(gl,st.p); const ssBuf = buf(gl,st.s); const sbBuf = buf(gl,st.b)
 
