@@ -38,6 +38,7 @@ export interface BlogPost {
   category: string
   publishedAt: string // ISO 8601
   coverImage?: string
+  author?: string;
 }
 
 export interface GalleryImage {
