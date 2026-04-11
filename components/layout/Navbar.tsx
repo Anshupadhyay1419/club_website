@@ -98,8 +98,7 @@ export default function Navbar() {
                   href={href}
                   className="block px-4 py-2 text-[13px] font-medium tracking-wide uppercase min-h-[36px] flex items-center whitespace-nowrap transition-none"
                   style={{
-                    color: pathname === href ? '#fff' : 'var(--text-secondary)',
-                    mixBlendMode: cursor.opacity > 0 ? 'difference' : 'normal',
+                    color: pathname === href ? 'var(--accent)' : 'var(--text-secondary)',
                   }}
                 >
                   {label}
