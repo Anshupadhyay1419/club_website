@@ -1,10 +1,7 @@
 'use client'
 
-import dynamic from 'next/dynamic'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
-
-const HeroVideo = dynamic(() => import('./HeroVideo'), { ssr: false })
 
 const ease = [0.16, 1, 0.3, 1] as const
 
@@ -12,10 +9,13 @@ export default function HeroSection() {
   return (
     <section className="relative min-h-screen flex flex-col overflow-hidden" style={{ background: '#02020e' }}>
 
-      {/* Looping video background — lazy loaded */}
-      <HeroVideo />
-      {/* Dark overlay so text stays readable */}
-      <div className="absolute inset-0 bg-black/45" aria-hidden="true" />
+      {/* Spline 3D background — replaces video */}
+      <div className="absolute inset-0 z-0">
+        {/* @ts-expect-error spline-viewer is a web component */}
+        <spline-viewer url="https://prod.spline.design/oTZTab4A1lBMayei/scene.splinecode" style={{ width: '100%', height: '100%' }} />
+      </div>
+      {/* Subtle dark overlay so text stays readable */}
+      <div className="absolute inset-0 bg-black/30" aria-hidden="true" />
 
       <div className="relative z-10 flex-1 flex flex-col items-start justify-center text-left px-12 md:px-20 lg:px-28 pt-24 pb-32 max-w-3xl">
 

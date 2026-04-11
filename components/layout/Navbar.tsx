@@ -1,10 +1,10 @@
 ﻿'use client'
 
 import Image from 'next/image'
-import { useState } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { motion, AnimatePresence } from 'framer-motion'
+import { AnimatePresence, motion } from 'framer-motion'
 import { Menu, X } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import ThemeToggle from '@/components/layout/ThemeToggle'
@@ -23,68 +23,97 @@ const navLinks = [
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false)
   const pathname = usePathname()
+  const [cursor, setCursor] = useState<{ left: number; width: number; opacity: number }>({ left: 0, width: 0, opacity: 0 })
+  const pillRef = useRef<HTMLUListElement>(null)
+
+  const handleMouseEnter = (e: React.MouseEvent<HTMLLIElement>) => {
+    const tab = e.currentTarget
+    const pill = pillRef.current
+    if (!pill) return
+    const pillRect = pill.getBoundingClientRect()
+    const tabRect = tab.getBoundingClientRect()
+    setCursor({
+      left: tabRect.left - pillRect.left,
+      width: tabRect.width,
+      opacity: 1,
+    })
+  }
+
+  const handleMouseLeave = () => {
+    setCursor(prev => ({ ...prev, opacity: 0 }))
+  }
 
   return (
     <header
       className="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl"
       style={{
-        background: 'color-mix(in srgb, var(--bg-card) 85%, transparent)',
+        background: 'color-mix(in srgb, var(--bg-card) 90%, transparent)',
         borderBottom: '1px solid var(--border)',
-        boxShadow: '0 1px 0 var(--border)',
+        height: '64px',
       }}
     >
-      <nav className="max-w-7xl mx-auto px-8 lg:px-12 flex items-center justify-between h-20">
-        {/* University logo — extreme left, clickable */}
+      <nav className="max-w-7xl mx-auto px-6 lg:px-10 flex items-center justify-between h-full">
+
+        {/* University logo */}
         <a href="https://www.bennett.edu.in/" target="_blank" rel="noopener noreferrer" aria-label="Bennett University">
-          <Image src="/uni_logo.jpg" alt="University logo" width={100} height={52} className="h-13 w-auto object-contain flex-shrink-0 mr-4 -ml-6" />
+          <Image src="/uni_logo.jpg" alt="University logo" width={90} height={48} className="w-auto object-contain flex-shrink-0" style={{ height: '44px' }} />
         </a>
 
         {/* Club logo + name */}
-        <Link
-          href="/"
-          className="flex items-center gap-2.5 text-2xl font-bold tracking-tight"
-          style={{ fontFamily: 'var(--font-space-grotesk)', color: 'var(--text-primary)' }}
-        >
-          <Image
-            src="/club_logo.jpeg"
-            alt="RoboGenesis logo"
-            width={52}
-            height={52}
-            className="rounded-full object-cover"
-          />
+        <Link href="/" className="flex items-center gap-2 font-bold tracking-tight flex-shrink-0"
+          style={{ fontFamily: 'var(--font-space-grotesk)', color: 'var(--text-primary)', fontSize: '1.1rem' }}>
+          <Image src="/club_logo.jpeg" alt="RoboGenesis logo" width={40} height={40} className="rounded-full object-cover" />
           RoboGenesis
         </Link>
 
-        {/* Desktop links */}
-        <ul className="hidden md:flex items-center gap-0.5">
-          {navLinks.map(({ href, label }) => (
-            <li key={href}>
-              <Link
-                href={href}
-                className="relative px-3 py-2 rounded-md text-[15px] font-semibold transition-colors duration-150 min-h-[44px] inline-flex items-center"
-                style={{ color: pathname === href ? 'var(--accent)' : 'var(--text-secondary)' }}
-              >
-                {pathname === href && (
-                  <motion.span
-                    layoutId="nav-active"
-                    className="absolute inset-0 rounded-md"
-                    style={{ background: 'var(--accent-soft)' }}
-                    transition={{ type: 'spring', stiffness: 500, damping: 35 }}
-                  />
-                )}
-                <span className="relative z-10">{label}</span>
-              </Link>
-            </li>
-          ))}
-        </ul>
+        {/* ── PILL NAV with sliding cursor ── */}
+        <div className="hidden md:block relative">
+          <ul
+            ref={pillRef}
+            className="relative flex items-center list-none p-1 rounded-full"
+            style={{
+              border: '1px solid var(--border)',
+              background: 'color-mix(in srgb, var(--bg-card) 70%, transparent)',
+              backdropFilter: 'blur(16px)',
+            }}
+            onMouseLeave={handleMouseLeave}
+          >
+            {/* Sliding cursor */}
+            <li
+              aria-hidden="true"
+              className="absolute top-1 rounded-full pointer-events-none transition-all duration-200"
+              style={{
+                left: cursor.left,
+                width: cursor.width,
+                height: 'calc(100% - 8px)',
+                opacity: cursor.opacity,
+                background: 'linear-gradient(135deg, var(--accent), var(--accent2))',
+                boxShadow: '0 0 16px var(--glow)',
+                transition: 'left 0.22s cubic-bezier(0.16,1,0.3,1), width 0.22s cubic-bezier(0.16,1,0.3,1), opacity 0.15s ease',
+              }}
+            />
+            {navLinks.map(({ href, label }) => (
+              <li key={href} onMouseEnter={handleMouseEnter} className="relative z-10">
+                <Link
+                  href={href}
+                  className="block px-4 py-2 text-[13px] font-medium tracking-wide uppercase min-h-[36px] flex items-center whitespace-nowrap transition-none"
+                  style={{
+                    color: pathname === href ? '#fff' : 'var(--text-secondary)',
+                    mixBlendMode: cursor.opacity > 0 ? 'difference' : 'normal',
+                  }}
+                >
+                  {label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
 
         {/* CTA & Theme Toggle */}
         <div className="hidden md:flex items-center gap-2">
           <ThemeToggle />
-          <Link
-            href="/contact"
-            className="inline-flex items-center px-5 py-2 rounded-xl text-[14px] font-bold text-white btn-gradient transition-colors duration-150 min-h-[40px] shadow-sm"
-          >
+          <Link href="/contact"
+            className="inline-flex items-center px-5 py-2 rounded-full text-[13px] font-bold text-white btn-gradient min-h-[36px]">
             Join Us
           </Link>
         </div>
@@ -92,13 +121,10 @@ export default function Navbar() {
         {/* Mobile toggle */}
         <div className="md:hidden flex items-center gap-2">
           <ThemeToggle />
-          <button
-            className="p-2 min-h-[44px] min-w-[44px] flex items-center justify-center transition-colors"
+          <button className="p-2 min-h-[44px] min-w-[44px] flex items-center justify-center"
             style={{ color: 'var(--text-secondary)' }}
-            onClick={() => setMenuOpen((o) => !o)}
-            aria-label={menuOpen ? 'Close menu' : 'Open menu'}
-            aria-expanded={menuOpen}
-          >
+            onClick={() => setMenuOpen(o => !o)}
+            aria-label={menuOpen ? 'Close menu' : 'Open menu'}>
             {menuOpen ? <X size={20} /> : <Menu size={20} />}
           </button>
         </div>
@@ -118,17 +144,12 @@ export default function Navbar() {
             <ul className="flex flex-col px-6 py-3 gap-0.5">
               {navLinks.map(({ href, label }) => (
                 <li key={href}>
-                  <Link
-                    href={href}
-                    onClick={() => setMenuOpen(false)}
-                    className={cn(
-                      'block px-3 py-3 rounded-md text-[15px] font-semibold transition-colors duration-150 min-h-[44px] flex items-center'
-                    )}
+                  <Link href={href} onClick={() => setMenuOpen(false)}
+                    className={cn('block px-3 py-3 rounded-md text-[14px] font-semibold min-h-[44px] flex items-center')}
                     style={{
                       color: pathname === href ? 'var(--accent)' : 'var(--text-secondary)',
                       background: pathname === href ? 'var(--accent-soft)' : 'transparent',
-                    }}
-                  >
+                    }}>
                     {label}
                   </Link>
                 </li>
