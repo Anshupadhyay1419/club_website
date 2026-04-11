@@ -14,7 +14,8 @@ export default function ThemeProvider({ children }: { children: React.ReactNode 
 
   useEffect(() => {
     const saved = localStorage.getItem('theme') as Theme | null
-    const preferred = saved ?? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light')
+    // Default to light mode — only use saved preference if user has explicitly set it
+    const preferred = saved ?? 'light'
     setTheme(preferred)
     document.documentElement.classList.toggle('dark', preferred === 'dark')
   }, [])
