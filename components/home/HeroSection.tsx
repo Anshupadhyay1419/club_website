@@ -10,18 +10,21 @@ const ease = [0.16, 1, 0.3, 1] as const
 
 export default function HeroSection() {
   return (
-    <section className="relative min-h-screen flex flex-col overflow-hidden" style={{ background: '#0d0d1a' }}>
+    <section
+      className="relative min-h-screen flex flex-col overflow-hidden"
+      style={{ background: '#0d0d1a' }}
+    >
+      {/* Spline fills entire section — gets ALL pointer events */}
+      <div className="absolute inset-0" style={{ zIndex: 1 }}>
+        <SplineHero />
+      </div>
 
-      {/* Spline 3D — robot that follows cursor */}
-      <SplineHero />
-
-      {/* Subtle overlay — pointer-events-none so Spline gets all mouse events */}
-      <div className="absolute inset-0 bg-black/20 z-[1] pointer-events-none" aria-hidden="true" />
-
-      {/* Hero content — centered like friend's design */}
-      <div className="relative z-10 flex-1 flex flex-col items-center justify-center text-center px-6 pt-16 pb-24">
-
-        {/* Big display title — Outfit font, ultra thin */}
+      {/* Text overlay — pointer-events-none so mouse goes through to Spline */}
+      <div
+        className="relative flex-1 flex flex-col items-center justify-center text-center px-6 pt-16 pb-24"
+        style={{ zIndex: 2, pointerEvents: 'none' }}
+      >
+        {/* Big display title */}
         <motion.h1
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
@@ -41,7 +44,6 @@ export default function HeroSection() {
           RoboGenesis
         </motion.h1>
 
-        {/* Subtitle */}
         <motion.p
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -61,16 +63,17 @@ export default function HeroSection() {
           crafting the robots of tomorrow
         </motion.p>
 
-        {/* CTA */}
+        {/* Buttons — re-enable pointer events only on buttons */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.9, ease }}
           className="flex items-center gap-4 mt-8"
+          style={{ pointerEvents: 'auto' }}
         >
           <Link
             href="/projects"
-            className="inline-flex items-center justify-center px-8 py-3.5 rounded-full text-[0.9rem] font-normal text-white min-h-[44px] transition-all duration-300"
+            className="inline-flex items-center justify-center px-8 py-3.5 rounded-full text-[0.9rem] font-normal text-white min-h-[44px] transition-all duration-300 hover:bg-white/10"
             style={{
               border: '1px solid rgba(255,255,255,0.2)',
               background: 'rgba(255,255,255,0.04)',
@@ -94,13 +97,18 @@ export default function HeroSection() {
         </motion.div>
       </div>
 
-      {/* Bottom tagline */}
+      {/* Bottom tagline — pointer-events-none */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.2 }}
-        className="absolute bottom-0 left-0 right-0 z-10 flex items-center justify-center py-6"
-        style={{ borderTop: '1px solid rgba(255,255,255,0.06)', background: 'linear-gradient(0deg, rgba(5,5,16,0.8) 0%, transparent 100%)' }}
+        className="absolute bottom-0 left-0 right-0 flex items-center justify-center py-6"
+        style={{
+          zIndex: 2,
+          pointerEvents: 'none',
+          borderTop: '1px solid rgba(255,255,255,0.06)',
+          background: 'linear-gradient(0deg, rgba(5,5,16,0.8) 0%, transparent 100%)',
+        }}
       >
         <p style={{
           fontFamily: 'var(--font-outfit)',
