@@ -255,3 +255,14 @@ body {
   opacity: 0.2;
   background: linear-gradient(-30deg, var(--electric-border-color), transparent, var(--electric-border-color));
 }
+
+/* ── Hide Spline watermark ── */
+spline-viewer #logo,
+spline-viewer .spline-watermark,
+#spline-viewer-logo,
+[class*="spline-watermark"],
+[id*="spline-watermark"] {
+  display: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+}

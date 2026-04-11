@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useCallback } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import Image from 'next/image'
 import { teamMembers } from '@/data/team'
 
@@ -15,6 +15,12 @@ export default function TeamCarousel() {
       setFading(false)
     }, 280)
   }, [])
+
+  // Autoplay
+  useEffect(() => {
+    const timer = setInterval(() => goTo(activeIndex + 1), 5000)
+    return () => clearInterval(timer)
+  }, [activeIndex, goTo])
 
   const member = teamMembers[activeIndex]
 
