@@ -26,12 +26,12 @@ export default function AboutPreview() {
               <span className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ background: 'var(--accent)' }} />
               About Us
             </div>
-            <h2 className="text-[clamp(2.2rem,5vw,3.8rem)] font-black tracking-tight leading-[1.1] mb-6"
+            <h2 className="text-[clamp(1.5rem,3.5vw,2.5rem)] font-black tracking-tight leading-[1.1] mb-6"
               style={{ fontFamily: 'var(--font-space-grotesk)', color: 'var(--text-primary)' }}>
               Where engineering<br />
               <span className="gradient-text">meets ambition</span>
             </h2>
-            <p className="text-lg leading-relaxed mb-8 max-w-lg" style={{ color: 'var(--text-secondary)' }}>
+            <p className="text-sm leading-relaxed mb-6 max-w-lg" style={{ color: 'var(--text-secondary)' }}>
               RoboGenesis is a student-led tech club at the forefront of robotics and AI.
               We build real-world systems, host workshops and events.
             </p>

@@ -42,10 +42,10 @@ export default function ProjectCard({ project }: ProjectCardProps) {
       </div>
 
       <div className="p-6 flex flex-col flex-1">
-        <h3 className="text-xl font-bold mb-2 font-[var(--font-space-grotesk)]" style={{ color: 'var(--text-primary)' }}>
+        <h3 className="text-base font-bold mb-2 font-[var(--font-space-grotesk)]" style={{ color: 'var(--text-primary)' }}>
           {project.title}
         </h3>
-        <p className="text-base leading-relaxed mb-5 flex-1" style={{ color: 'var(--text-secondary)' }}>
+        <p className="text-sm leading-relaxed mb-5 flex-1" style={{ color: 'var(--text-secondary)' }}>
           {project.description}
         </p>
         <div className="flex flex-wrap gap-2 mb-5">
