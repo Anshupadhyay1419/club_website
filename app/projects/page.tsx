@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import ProjectCard from '@/components/projects/ProjectCard'
+import ProjectModal from '@/components/projects/ProjectModal'
 import FilterBar from '@/components/ui/FilterBar'
 import SectionHeading from '@/components/ui/SectionHeading'
 import ScrollReveal from '@/components/ui/ScrollReveal'
@@ -13,6 +14,7 @@ const FILTER_OPTIONS = ['All', 'AI', 'Robotics', 'IoT']
 
 export default function ProjectsPage() {
   const [activeFilter, setActiveFilter] = useState('All')
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null)
 
   const filtered: Project[] =
     activeFilter === 'All'
@@ -49,11 +51,14 @@ export default function ProjectsPage() {
               exit={{ opacity: 0, scale: 0.9 }}
               transition={{ duration: 0.25 }}
             >
-              <ProjectCard project={project} />
+              <ProjectCard project={project} onClick={setSelectedProject} />
             </motion.div>
           ))}
         </div>
       </AnimatePresence>
+
+      {/* Project detail modal */}
+      <ProjectModal project={selectedProject} onClose={() => setSelectedProject(null)} />
     </div>
   )
 }

@@ -7,6 +7,8 @@ export interface Project {
   category: 'AI' | 'Robotics' | 'IoT'
   githubUrl?: string
   detailUrl?: string
+  pdfUrl?: string
+  fullDescription?: string
 }
 
 export interface Event {
