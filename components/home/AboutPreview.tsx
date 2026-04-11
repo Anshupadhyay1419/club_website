@@ -2,10 +2,10 @@ import Link from 'next/link'
 import ScrollReveal from '@/components/ui/ScrollReveal'
 
 const pillars = [
-  { title: 'Robotics', desc: 'Autonomous systems, ROS2, mechanical design and control.', icon: '🤖', num: '01' },
-  { title: 'Artificial Intelligence', desc: 'Deep learning, computer vision, and NLP.', icon: '🧠', num: '02' },
-  { title: 'IoT & Embedded', desc: 'Edge computing, sensor fusion, real-time systems.', icon: '⚡', num: '03' },
-  { title: 'Research & Innovation', desc: 'Hackathons, competitions, published research.', icon: '🚀', num: '04' },
+  { title: 'Robotics', desc: 'Autonomous systems, ROS2, mechanical design and control.', num: '01' },
+  { title: 'Artificial Intelligence', desc: 'Deep learning, computer vision, and NLP.', num: '02' },
+  { title: 'IoT & Embedded', desc: 'Edge computing, sensor fusion, real-time systems.', num: '03' },
+  { title: 'Research & Innovation', desc: 'Hackathons, competitions, published research.', num: '04' },
 ]
 
 const stats = [
@@ -62,7 +62,6 @@ export default function AboutPreview() {
             <div className="glass gradient-border rounded-2xl p-7 h-full group cursor-default relative overflow-hidden">
               <div className="absolute top-4 right-4 text-4xl font-black opacity-5 select-none"
                 style={{ color: 'var(--accent)', fontFamily: 'var(--font-space-grotesk)' }}>{p.num}</div>
-              <div className="text-3xl mb-5">{p.icon}</div>
               <h3 className="text-base font-bold mb-2" style={{ color: 'var(--text-primary)' }}>{p.title}</h3>
               <p className="text-sm leading-relaxed" style={{ color: 'var(--text-muted)' }}>{p.desc}</p>
             </div>
