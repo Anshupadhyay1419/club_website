@@ -33,7 +33,7 @@ export default function AboutPreview() {
             </h2>
             <p className="text-lg leading-relaxed mb-8 max-w-lg" style={{ color: 'var(--text-secondary)' }}>
               RoboGenesis is a student-led tech club at the forefront of robotics and AI.
-              We build real-world systems, host workshops, and compete on national stages.
+              We build real-world systems, host workshops and events.
             </p>
             <Link href="/about"
               className="inline-flex items-center gap-3 px-6 py-3 rounded-xl font-bold text-sm transition-all duration-200 btn-gradient">

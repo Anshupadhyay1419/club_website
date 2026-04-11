@@ -69,7 +69,7 @@ function prog(gl: WebGLRenderingContext, vs: string, fs: string) {
   const p=gl.createProgram()!; gl.attachShader(p,mk(gl.VERTEX_SHADER,vs)); gl.attachShader(p,mk(gl.FRAGMENT_SHADER,fs)); gl.linkProgram(p); return p
 }
 
-function buf(gl: WebGLRenderingContext, data: BufferSource, target=gl.ARRAY_BUFFER) {
+function buf(gl: WebGLRenderingContext, data: BufferSource, target: number = gl.ARRAY_BUFFER) {
   const b=gl.createBuffer()!; gl.bindBuffer(target,b); gl.bufferData(target,data,gl.STATIC_DRAW); return b
 }
 
@@ -95,8 +95,7 @@ export default function AICoreBackground() {
 
     const sp = sphere(64,64)
     const pBuf = buf(gl,sp.pos); const uvBuf = buf(gl,sp.uv); const nBuf = buf(gl,sp.norm)
-    const iBuf = buf(gl,sp.idx,gl.ELEMENT_ARRAY_BUFFER)
-
+    const iBuf = buf(gl, sp.idx as BufferSource, gl.ELEMENT_ARRAY_BUFFER)
     const st = stars(900)
     const spBuf = buf(gl,st.p); const ssBuf = buf(gl,st.s); const sbBuf = buf(gl,st.b)
 
