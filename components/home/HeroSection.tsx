@@ -120,6 +120,13 @@ export default function HeroSection() {
           we build with passion
         </p>
       </motion.div>
+
+      {/* Cover Spline watermark — solid block over bottom-right corner */}
+      <div
+        className="absolute bottom-0 right-0 z-20 pointer-events-none"
+        style={{ width: '200px', height: '44px', background: '#0d0d1a' }}
+        aria-hidden="true"
+      />
     </section>
   )
 }
