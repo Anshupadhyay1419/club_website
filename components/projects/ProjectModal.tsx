@@ -6,7 +6,7 @@ import { X, Download, GitBranch } from 'lucide-react'
 import type { Project } from '@/types'
 
 interface ProjectModalProps {
-  project: Project
+  project: Project | null
   onClose: () => void
 }
 
@@ -69,6 +69,8 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
   }
 
   return (
+    <>
+      {project && (
     <div
       className="fixed inset-0 z-50 flex items-center justify-center p-4"
       style={{ background: 'rgba(0,0,0,0.7)', backdropFilter: 'blur(8px)' }}
@@ -146,5 +148,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
         </div>
       </div>
     </div>
+      )}
+    </>
   )
 }
