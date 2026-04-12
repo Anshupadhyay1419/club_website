@@ -22,6 +22,8 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
     }
   }, [onClose])
 
+  if (!project) return null
+
   const handleDownload = () => {
     // Generate PDF content as HTML and print to PDF
     const content = `
@@ -69,8 +71,6 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
   }
 
   return (
-    <>
-      {project && (
     <div
       className="fixed inset-0 z-50 flex items-center justify-center p-4"
       style={{ background: 'rgba(0,0,0,0.7)', backdropFilter: 'blur(8px)' }}
@@ -148,7 +148,5 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
         </div>
       </div>
     </div>
-      )}
-    </>
   )
 }
