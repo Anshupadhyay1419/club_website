@@ -33,11 +33,11 @@ export default function HeroSection() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.2, delay: 0.3, ease }}
           style={{
-            fontFamily: 'var(--font-outfit)',
-            fontWeight: 200,
-            fontSize: 'clamp(5rem, 15vw, 12rem)',
+            fontFamily: 'var(--font-orbitron)',
+            fontWeight: 800,
+            fontSize: 'clamp(3rem, 10vw, 8rem)',
             lineHeight: 1,
-            letterSpacing: '-0.04em',
+            letterSpacing: '0.05em',
             background: 'linear-gradient(180deg, #ffffff 0%, rgba(200,210,230,0.7) 50%, rgba(120,140,180,0.4) 100%)',
             WebkitBackgroundClip: 'text',
             WebkitTextFillColor: 'transparent',

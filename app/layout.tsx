@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Space_Grotesk, Inter, Outfit } from 'next/font/google'
+import { Space_Grotesk, Inter, Outfit, Orbitron } from 'next/font/google'
 import { LazyMotion, domAnimation } from 'framer-motion'
 import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
@@ -13,6 +13,13 @@ const outfit = Outfit({
   variable: '--font-outfit',
   subsets: ['latin'],
   weight: ['200', '300', '400'],
+  display: 'swap',
+})
+
+const orbitron = Orbitron({
+  variable: '--font-orbitron',
+  subsets: ['latin'],
+  weight: ['700', '800', '900'],
   display: 'swap',
 })
 
@@ -45,7 +52,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className={`${spaceGrotesk.variable} ${inter.variable} ${outfit.variable}`} suppressHydrationWarning>
+    <html lang="en" className={`${spaceGrotesk.variable} ${inter.variable} ${outfit.variable} ${orbitron.variable}`} suppressHydrationWarning>
       <head>
       </head>
       <body className="min-h-screen flex flex-col overflow-x-hidden" style={{ backgroundColor: 'var(--bg)', color: 'var(--text-primary)' }} suppressHydrationWarning>
