@@ -3,8 +3,9 @@ import { Cpu, Bot, Wifi, CircuitBoard } from 'lucide-react'
 import GlassCard from '@/components/ui/GlassCard'
 import SectionHeading from '@/components/ui/SectionHeading'
 import ScrollReveal from '@/components/ui/ScrollReveal'
+import { facultyMembers } from '@/data/team'
 
-function FacultyCard({ id, name, photo, description }: { id: string; name: string; photo: string; description: string }) {
+function FacultyCard({ id, name, photo, description, designation }: { id: string; name: string; photo: string; description: string; designation?: string }) {
   return (
     <GlassCard hoverGlow className="flex flex-col items-center text-center p-0 overflow-hidden">
       <div className="relative w-full h-72 flex-shrink-0" style={{ background: 'var(--bg-muted)' }}>
@@ -16,6 +17,7 @@ function FacultyCard({ id, name, photo, description }: { id: string; name: strin
       </div>
       <div className="p-5 w-full">
         <h3 className="font-bold font-[var(--font-space-grotesk)] text-base mb-1" style={{ color: 'var(--text-primary)' }}>{name}</h3>
+        {designation && <p className="text-sm font-semibold mb-2" style={{ color: 'var(--accent)' }}>{designation}</p>}
         <p className="text-sm leading-relaxed mt-2" style={{ color: 'var(--text-secondary)' }}>{description}</p>
       </div>
     </GlassCard>
@@ -77,10 +79,7 @@ export default function AboutPage() {
         <h3 className="text-2xl font-bold mb-6 text-center" style={{ color: 'var(--text-primary)' }}>Our Club Coordinators</h3>
       </ScrollReveal>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-14">
-        {[
-          { id: 'f4', name: 'Dr. Prateek Yadav', photo: '/images/faculty/Prateek.jpg', description: 'Associate Professor in Electronics & Communication. Research focus on real-time image processing, object detection, and visual SLAM systems.' },
-          { id: 'f6', name: 'Dr. Navneet Pratap Singh', photo: '/images/faculty/Navneet.jpg', description: 'Assistant Professor specializing in machine learning pipelines, predictive analytics, and AI-driven decision systems.' },
-        ].map((faculty, i) => (
+        {[facultyMembers[3], facultyMembers[4]].map((faculty, i) => (
           <ScrollReveal key={faculty.id} delay={i * 0.1}>
             <FacultyCard {...faculty} />
           </ScrollReveal>
@@ -92,10 +91,7 @@ export default function AboutPage() {
         <h3 className="text-2xl font-bold mb-6 text-center" style={{ color: 'var(--text-primary)' }}>Our Patron</h3>
       </ScrollReveal>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-14">
-        {[
-          { id: 'f2', name: 'Dr. Pratyush Pranav', photo: '/images/faculty/Pratyush.jpg', description: 'Associate Professor specializing in robot kinematics, control theory, and mechatronics with numerous published research papers.' },
-          { id: 'f3', name: 'Dr. Manoj Sharma', photo: '/images/faculty/Manoj.jpeg', description: 'Senior Lecturer in Electronics Engineering with expertise in wireless sensor networks, edge computing, and embedded hardware design.' },
-        ].map((faculty, i) => (
+        {[facultyMembers[1], facultyMembers[2]].map((faculty, i) => (
           <ScrollReveal key={faculty.id} delay={i * 0.1}>
             <FacultyCard {...faculty} />
           </ScrollReveal>
@@ -109,12 +105,7 @@ export default function AboutPage() {
       <div className="flex justify-center mb-14">
         <div className="w-full max-w-sm">
           <ScrollReveal>
-            <FacultyCard
-              id="f1"
-              name="Dr. Rajeev Tiwari"
-              photo="/images/faculty/Rajeev.jpg"
-              description="Professor of Computer Science with extensive research in deep learning, neural networks, and autonomous intelligent systems."
-            />
+            <FacultyCard {...facultyMembers[0]} />
           </ScrollReveal>
         </div>
       </div>
