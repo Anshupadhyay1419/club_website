@@ -88,9 +88,9 @@ export const facultyMembers: FacultyMember[] = [
   {
     id: 'f1',
     name: 'Dr. Rajeev Tiwari',
-    designation: 'Faculty Advisor',
+    designation: 'Professor & Dean, School of Artificial Intelligence',
     photo: '/images/faculty/Rajeev.jpg',
-    description: 'Professor of Computer Science with extensive research in deep learning, neural networks, and autonomous intelligent systems.',
+    description: 'Professor and Dean of the School of Artificial Intelligence at Bennett University, providing visionary leadership and academic guidance to RoboGenesis.',
   },
   {
     id: 'f2',
