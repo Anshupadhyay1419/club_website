@@ -11,8 +11,9 @@ interface ProjectModalProps {
 }
 
 export default function ProjectModal({ project, onClose }: ProjectModalProps) {
-  // Close on Escape key
+  // Close on Escape key + lock body scroll only when modal is open
   useEffect(() => {
+    if (!project) return
     const handler = (e: KeyboardEvent) => { if (e.key === 'Escape') onClose() }
     window.addEventListener('keydown', handler)
     document.body.style.overflow = 'hidden'
@@ -20,7 +21,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
       window.removeEventListener('keydown', handler)
       document.body.style.overflow = ''
     }
-  }, [onClose])
+  }, [project, onClose])
 
   if (!project) return null
 
