@@ -17,7 +17,7 @@ export function cn(...inputs: ClassValue[]): string {
   }
 }
 
-const CLOUD_NAME = 'dfkbt26gathis'
+const CLOUD_NAME = 'dfkbt26ga'
 const BASE = `https://res.cloudinary.com/${CLOUD_NAME}/image/upload`
 
 /**
