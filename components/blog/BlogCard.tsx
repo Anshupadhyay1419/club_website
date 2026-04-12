@@ -13,7 +13,8 @@ export default function BlogCard({ post }: BlogCardProps) {
 
   return (
     <GlassCard hoverGlow className="flex flex-col h-full">
-      <span className="inline-block px-3 py-1 text-xs font-semibold rounded-full bg-violet-100 text-violet-600 border border-violet-200 mb-3 self-start">
+      <span className="inline-block px-3 py-1 text-xs font-semibold rounded-full mb-3 self-start"
+        style={{ background: 'var(--accent-soft)', color: 'var(--accent)', border: '1px solid var(--border-accent)' }}>
         {post.category}
       </span>
       <h3 className="text-lg font-bold mb-2 font-[var(--font-space-grotesk)] leading-snug" style={{ color: 'var(--text-primary)' }}>
