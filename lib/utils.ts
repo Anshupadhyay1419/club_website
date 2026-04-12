@@ -16,3 +16,20 @@ export function cn(...inputs: ClassValue[]): string {
       .join(' ')
   }
 }
+
+const CLOUD_NAME = 'dfkbt26gathis'
+const BASE = `https://res.cloudinary.com/${CLOUD_NAME}/image/upload`
+
+/**
+ * Returns an optimized Cloudinary URL.
+ * @param path  - e.g. 'team/john.jpg' or 'gallery/event1.jpg'
+ * @param width - resize width in px (default 800)
+ *
+ * Usage:
+ *   cloudImg('team/john.jpg', 400)
+ *   cloudImg('projects/line-car.jpg', 800)
+ *   cloudImg('gallery/event1.jpg', 600)
+ */
+export function cloudImg(path: string, width = 800): string {
+  return `${BASE}/f_auto,q_auto,w_${width}/${path}`
+}
