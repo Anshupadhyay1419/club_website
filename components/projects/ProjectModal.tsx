@@ -25,49 +25,46 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
   if (!project) return null
 
   const handleDownload = () => {
-    // Generate PDF content as HTML and print to PDF
-    const content = `
-      <!DOCTYPE html>
-      <html>
-      <head>
-        <meta charset="UTF-8">
-        <title>${project.title} - RoboGenesis</title>
-        <style>
-          body { font-family: Arial, sans-serif; max-width: 800px; margin: 40px auto; padding: 0 20px; color: #1a1a2e; line-height: 1.6; }
-          h1 { color: #6366f1; font-size: 28px; border-bottom: 2px solid #6366f1; padding-bottom: 10px; }
-          h2 { color: #374151; font-size: 18px; margin-top: 24px; }
-          .badge { display: inline-block; background: #eef2ff; color: #6366f1; padding: 4px 12px; border-radius: 20px; font-size: 13px; font-weight: 600; margin-bottom: 16px; }
-          .tech { display: inline-block; background: #f3f4f6; color: #374151; padding: 3px 10px; border-radius: 6px; font-size: 12px; margin: 3px; }
-          .footer { margin-top: 40px; padding-top: 20px; border-top: 1px solid #e5e7eb; color: #9ca3af; font-size: 12px; }
-          pre { white-space: pre-wrap; font-family: Arial, sans-serif; }
-        </style>
-      </head>
-      <body>
-        <div class="badge">${project.category}</div>
-        <h1>${project.title}</h1>
-        <p>${project.description}</p>
-        <h2>Technologies Used</h2>
-        <div>${project.techStack.map(t => `<span class="tech">${t}</span>`).join('')}</div>
-        <h2>Project Details</h2>
-        <pre>${project.fullDescription || project.description}</pre>
-        ${project.githubUrl ? `<h2>Repository</h2><p><a href="${project.githubUrl}">${project.githubUrl}</a></p>` : ''}
-        <div class="footer">
-          <p>RoboGenesis — Bennett University Tech Club | robogenesis@bennett.edu.in</p>
-          <p>Generated on ${new Date().toLocaleDateString('en-IN', { year: 'numeric', month: 'long', day: 'numeric' })}</p>
-        </div>
-      </body>
-      </html>
-    `
+    const content = `<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>${project.title} - RoboGenesis</title>
+  <style>
+    body { font-family: Arial, sans-serif; max-width: 800px; margin: 40px auto; padding: 0 20px; color: #1a1a2e; line-height: 1.6; }
+    h1 { color: #6366f1; font-size: 28px; border-bottom: 2px solid #6366f1; padding-bottom: 10px; }
+    h2 { color: #374151; font-size: 18px; margin-top: 24px; }
+    .badge { display: inline-block; background: #eef2ff; color: #6366f1; padding: 4px 12px; border-radius: 20px; font-size: 13px; font-weight: 600; margin-bottom: 16px; }
+    .tech { display: inline-block; background: #f3f4f6; color: #374151; padding: 3px 10px; border-radius: 6px; font-size: 12px; margin: 3px; }
+    .footer { margin-top: 40px; padding-top: 20px; border-top: 1px solid #e5e7eb; color: #9ca3af; font-size: 12px; }
+    pre { white-space: pre-wrap; font-family: Arial, sans-serif; }
+  </style>
+</head>
+<body>
+  <div class="badge">${project.category}</div>
+  <h1>${project.title}</h1>
+  <p>${project.description}</p>
+  <h2>Technologies Used</h2>
+  <div>${project.techStack.map(t => `<span class="tech">${t}</span>`).join('')}</div>
+  <h2>Project Details</h2>
+  <pre>${project.fullDescription || project.description}</pre>
+  ${project.githubUrl ? `<h2>Repository</h2><p><a href="${project.githubUrl}">${project.githubUrl}</a></p>` : ''}
+  <div class="footer">
+    <p>RoboGenesis — Bennett University Tech Club | robogenesis@bennett.edu.in</p>
+    <p>Generated on ${new Date().toLocaleDateString('en-IN', { year: 'numeric', month: 'long', day: 'numeric' })}</p>
+  </div>
+</body>
+</html>`
 
     const blob = new Blob([content], { type: 'text/html' })
     const url = URL.createObjectURL(blob)
-    const printWindow = window.open(url, '_blank')
-    if (printWindow) {
-      printWindow.onload = () => {
-        printWindow.print()
-        URL.revokeObjectURL(url)
-      }
-    }
+    const a = document.createElement('a')
+    a.href = url
+    a.download = `${project.title.replace(/\s+/g, '-').toLowerCase()}.html`
+    document.body.appendChild(a)
+    a.click()
+    document.body.removeChild(a)
+    URL.revokeObjectURL(url)
   }
 
   return (
@@ -134,7 +131,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
               className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-bold text-white transition-all btn-gradient"
             >
               <Download size={16} />
-              Download PDF
+              Download Details
             </button>
             {project.githubUrl && (
               <a href={project.githubUrl} target="_blank" rel="noopener noreferrer"
