@@ -4,7 +4,10 @@ import dynamic from 'next/dynamic'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 
-const SplineHero = dynamic(() => import('./SplineHero'), { ssr: false })
+const SplineHero = dynamic(() => import('./SplineHero'), {
+  ssr: false,
+  loading: () => <div className="absolute inset-0" style={{ background: '#0d0d1a' }} />,
+})
 
 const ease = [0.16, 1, 0.3, 1] as const
 

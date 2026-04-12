@@ -36,8 +36,12 @@ export default function ParticleCanvas() {
       canvas.height = canvas.offsetHeight
     }
 
+    const isMobile = window.innerWidth < 768
+    const count = isMobile ? 30 : PARTICLE_COUNT
+    const connDist = isMobile ? 80 : CONNECTION_DISTANCE
+
     const initParticles = () => {
-      particles = Array.from({ length: PARTICLE_COUNT }, () => ({
+      particles = Array.from({ length: count }, () => ({
         x: Math.random() * canvas.width,
         y: Math.random() * canvas.height,
         vx: (Math.random() - 0.5) * 0.5,
@@ -69,7 +73,7 @@ export default function ParticleCanvas() {
           const dx = particles[i].x - particles[j].x
           const dy = particles[i].y - particles[j].y
           const dist = Math.sqrt(dx * dx + dy * dy)
-          if (dist < CONNECTION_DISTANCE) {
+          if (dist < connDist) {
             ctx.beginPath()
             ctx.moveTo(particles[i].x, particles[i].y)
             ctx.lineTo(particles[j].x, particles[j].y)
