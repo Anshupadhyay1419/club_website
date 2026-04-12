@@ -7,16 +7,22 @@ import ProjectModal from './ProjectModal'
 
 interface ProjectCardProps {
   project: Project
+  onClick?: (project: Project) => void
 }
 
-export default function ProjectCard({ project }: ProjectCardProps) {
+export default function ProjectCard({ project, onClick }: ProjectCardProps) {
   const [open, setOpen] = useState(false)
+
+  const handleClick = () => {
+    if (onClick) onClick(project)
+    else setOpen(true)
+  }
 
   return (
     <>
       <div
         className="glass rounded-2xl overflow-hidden flex flex-col h-full group cursor-pointer"
-        onClick={() => setOpen(true)}
+        onClick={handleClick}
       >
         <div className="relative w-full h-48 overflow-hidden" style={{ background: 'var(--bg-muted)' }}>
           <Image src={project.image} alt={`${project.title} project image`} fill
