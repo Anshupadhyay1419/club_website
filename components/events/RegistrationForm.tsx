@@ -17,7 +17,12 @@ type RegistrationFormData = z.infer<typeof registrationSchema>
 
 export { registrationSchema }
 
-export default function RegistrationForm() {
+interface RegistrationFormProps {
+  eventId?: string
+  eventTitle?: string
+}
+
+export default function RegistrationForm({ eventId, eventTitle }: RegistrationFormProps) {
   const [submitted, setSubmitted] = useState(false)
 
   const { register, handleSubmit, formState: { errors }, reset } = useForm<RegistrationFormData>({
@@ -25,7 +30,13 @@ export default function RegistrationForm() {
   })
 
   const onSubmit = (data: RegistrationFormData) => {
-    console.log('Registration:', data)
+    const registrationData = {
+      ...data,
+      eventId,
+      eventTitle,
+      registeredAt: new Date().toISOString(),
+    }
+    console.log('Registration:', registrationData)
     setSubmitted(true)
     reset()
   }
@@ -51,7 +62,7 @@ export default function RegistrationForm() {
   return (
     <GlassCard className="max-w-lg mx-auto">
       <h3 className="text-xl font-bold mb-6 font-[var(--font-space-grotesk)]" style={{ color: 'var(--text-primary)' }}>
-        Register for an Event
+        {eventTitle ? `Register for ${eventTitle}` : 'Register for an Event'}
       </h3>
       <form onSubmit={handleSubmit(onSubmit)} noValidate className="space-y-4">
         <div>
