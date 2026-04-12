@@ -42,7 +42,7 @@ export default function GalleryGrid({ images }: GalleryGridProps) {
               ref={(el) => { triggerRefs.current[index] = el }}
               onClick={() => openLightbox(index)}
               className="relative w-full overflow-hidden rounded-xl cursor-pointer group focus:outline-none focus:ring-2 focus:ring-[#00f0ff]"
-              style={{ aspectRatio: `${image.width}/${image.height}` }}
+              style={{ aspectRatio: '4/3' }}
               aria-label={`View ${image.alt}`}
               whileHover={{ scale: 1.02 }}
               transition={{ duration: 0.2 }}
@@ -51,7 +51,7 @@ export default function GalleryGrid({ images }: GalleryGridProps) {
                 src={image.src}
                 alt={image.alt}
                 fill
-                className="object-contain transition-all duration-300 group-hover:brightness-110 group-hover:scale-105"
+                className="object-cover transition-all duration-300 group-hover:brightness-110 group-hover:scale-105"
                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 placeholder="blur"
                 blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFAABAAAAAAAAAAAAAAAAAAAACf/EABQQAQAAAAAAAAAAAAAAAAAAAAD/xAAUAQEAAAAAAAAAAAAAAAAAAAAA/8QAFBEBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEQMRAD8AJQAB/9k="
