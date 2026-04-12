@@ -39,19 +39,21 @@ export default function ContactPage() {
         <ScrollReveal delay={0.15}>
           <div className="space-y-8">
             <div>
-              <h3 className="text-lg font-bold text-slate-800 mb-3 font-[var(--font-space-grotesk)]">Email Us</h3>
+              <h3 className="text-lg font-bold mb-3 font-[var(--font-space-grotesk)]" style={{ color: 'var(--text-primary)' }}>Email Us</h3>
               <a href="mailto:robogenesis@bennett.edu.in"
-                className="flex items-center gap-3 text-slate-500 hover:text-indigo-600 transition-colors duration-200">
-                <Mail size={20} className="text-indigo-500" />
+                className="flex items-center gap-3 transition-colors duration-200 hover:opacity-80"
+                style={{ color: 'var(--text-secondary)' }}>
+                <Mail size={20} style={{ color: 'var(--accent)' }} />
                 <span className="text-lg select-all">robogenesis@bennett.edu.in</span>
               </a>
             </div>
             <div>
-              <h3 className="text-lg font-bold text-slate-800 mb-4 font-[var(--font-space-grotesk)]">Follow Us</h3>
+              <h3 className="text-lg font-bold mb-4 font-[var(--font-space-grotesk)]" style={{ color: 'var(--text-primary)' }}>Follow Us</h3>
               <div className="flex gap-4">
                 {socialLinks.map(({ href, label, svg }) => (
                   <a key={label} href={href} target="_blank" rel="noopener noreferrer" aria-label={label}
-                    className="p-3 min-h-[44px] min-w-[44px] flex items-center justify-center glass rounded-xl text-slate-400 hover:text-indigo-600 hover:shadow-md transition-all duration-200">
+                    className="p-3 min-h-[44px] min-w-[44px] flex items-center justify-center rounded-xl transition-all duration-200 hover:scale-110"
+                    style={{ background: 'var(--bg-muted)', color: 'var(--text-secondary)', border: '1px solid var(--border)' }}>
                     {svg}
                   </a>
                 ))}
