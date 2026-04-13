@@ -30,6 +30,7 @@ export default function ScrollReveal({ children, delay = 0, direction = 'up', cl
       variants={variants}
       transition={{ duration: 0.4, ease: 'easeOut', delay }}
       className={className}
+      style={{ pointerEvents: 'auto' }}
     >
       {children}
     </motion.div>

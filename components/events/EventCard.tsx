@@ -50,8 +50,6 @@ export default function EventCard({ event, variant }: EventCardProps) {
         {event.registrationLink && (
           <a
             href={event.registrationLink}
-            target="_blank"
-            rel="noopener noreferrer"
             className="mt-4 w-full min-h-[44px] flex items-center justify-center rounded-lg font-semibold text-sm text-white transition-all duration-200"
             style={{ background: 'linear-gradient(135deg, var(--accent), var(--accent2))', boxShadow: '0 0 16px var(--glow)' }}
           >
