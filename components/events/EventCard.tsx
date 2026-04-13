@@ -1,3 +1,5 @@
+'use client'
+
 import Image from 'next/image'
 import type { Event } from '@/types'
 import GlassCard from '@/components/ui/GlassCard'
@@ -46,11 +48,12 @@ export default function EventCard({ event, variant }: EventCardProps) {
         <p className="text-base leading-relaxed mb-5 flex-1" style={{ color: 'var(--text-secondary)' }}>{event.description}</p>
         <CountdownTimer date={event.date} />
         {event.registrationLink && (
-          <a href={event.registrationLink} target="_blank" rel="noopener noreferrer"
-            className="mt-4 w-full min-h-[44px] flex items-center justify-center rounded-lg font-semibold text-sm text-white transition-all duration-200"
+          <button
+            onClick={() => window.open(event.registrationLink, '_blank', 'noopener,noreferrer')}
+            className="mt-4 w-full min-h-[44px] flex items-center justify-center rounded-lg font-semibold text-sm text-white transition-all duration-200 cursor-pointer"
             style={{ background: 'linear-gradient(135deg, var(--accent), var(--accent2))', boxShadow: '0 0 16px var(--glow)' }}>
             Register Now →
-          </a>
+          </button>
         )}
       </div>
     </GlassCard>
