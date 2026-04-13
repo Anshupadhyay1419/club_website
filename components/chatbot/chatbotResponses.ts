@@ -1,198 +1,303 @@
+// ── Full club knowledge base for the chatbot ──
+
 export interface ResponseRule {
   keywords: string[]
   response: string
 }
 
 export const rules: ResponseRule[] = [
-  // ── JOINING ──
+  // ── GREETINGS ──
   {
-    keywords: ['join', 'membership', 'sign up', 'register', 'enroll', 'become member', 'how to join'],
-    response: 'To join RoboGenesis, fill out the contact form on our Contact page or email us at robogenesis@bennett.edu.in. We welcome all Bennett University students passionate about AI, Robotics, and Innovation!',
+    keywords: ['hi', 'hello', 'hey', 'hii', 'helo', 'namaste', 'good morning', 'good evening'],
+    response: 'Hello! 👋 Welcome to RoboGenesis! I\'m your club assistant. Ask me anything about our team, projects, events, faculty, or how to join!',
+  },
+  {
+    keywords: ['thanks', 'thank you', 'thankyou', 'great', 'awesome', 'nice', 'good'],
+    response: 'You\'re welcome! 😊 Feel free to ask anything else about RoboGenesis!',
   },
 
   // ── ABOUT ──
   {
-    keywords: ['about', 'mission', 'vision', 'what is robogenesis', 'who are you', 'tell me about'],
-    response: 'RoboGenesis is a student-led tech club at Bennett University focused on AI, Robotics, IoT, and Embedded Systems. Our mission is to bridge academic theory with real-world engineering. We build projects, host events, and compete nationally.',
+    keywords: ['about', 'mission', 'vision', 'what is robogenesis', 'who are you', 'tell me about', 'what do you do', 'purpose', 'goal'],
+    response: `🤖 About RoboGenesis:
+
+RoboGenesis is a student-led tech club at Bennett University, Greater Noida focused on AI, Robotics, IoT, and Embedded Systems.
+
+🎯 Mission: Bridge the gap between academic theory and real-world engineering through hands-on projects, workshops, and competitions.
+
+🌟 Vision: To be the premier university tech club producing graduates ready to lead the next wave of technological innovation.
+
+🔬 Focus Areas:
+• Artificial Intelligence – ML, Deep Learning, Computer Vision
+• Robotics – Autonomous systems, control theory, mechatronics
+• Internet of Things – Smart sensors, edge computing, cloud platforms
+• Embedded Systems – Microcontrollers, hardware design
+
+📍 Location: Bennett University, Greater Noida, Uttar Pradesh, India
+📧 Email: robogenesis@bennett.edu.in`,
   },
 
-  // ── PRESIDENT / LEADERSHIP ──
+  // ── JOINING ──
   {
-    keywords: ['vice president', 'ansh', 'ansh upadhyay'],
-    response: 'The Vice President is Ansh Upadhyay. He assists the President in managing club operations.',
+    keywords: ['join', 'membership', 'sign up', 'register', 'enroll', 'become member', 'how to join', 'apply'],
+    response: `✅ How to Join RoboGenesis:
+
+1. Email us at robogenesis@bennett.edu.in
+2. Or fill out the Contact form on our website
+3. We welcome ALL Bennett University students passionate about AI, Robotics, and Innovation!
+
+No prior experience needed — just curiosity and enthusiasm! 🚀`,
+  },
+
+  // ── FULL TEAM ──
+  {
+    keywords: ['team', 'members', 'who are the members', 'core team', 'all members', 'club members', 'show team', 'list members'],
+    response: `👥 RoboGenesis Core Team:
+
+🏆 Leadership:
+• Vansh Joshi – President
+• Ansh Upadhyay – Vice President
+• Akash Maurya – Secretary
+• Swarnim Chaudhary – Treasurer
+• Krishna Gaur – Deputy Treasurer
+
+🛠️ Technical:
+• Shiva Saroj – Tech Head
+
+📣 Media & Communications:
+• Priyanshi Goyal – Media Head
+• Jiwak Kumar – Media Sub Head
+
+📋 Operations:
+• Kshitij Dubey – Management Head`,
+  },
+
+  // ── INDIVIDUAL MEMBERS ──
+  {
+    keywords: ['president', 'vansh', 'vansh joshi'],
+    response: '🏆 President: Vansh Joshi\nVansh leads RoboGenesis and oversees all club activities, strategy, and direction.',
   },
   {
-    keywords: ['president', 'vansh', 'vansh joshi', 'leader', 'head of club'],
-    response: 'The President of RoboGenesis is Vansh Joshi. He leads the club and oversees all activities.',
+    keywords: ['vice president', 'ansh', 'ansh upadhyay'],
+    response: '🏆 Vice President: Ansh Upadhyay\nAnsh assists the President in managing club operations and represents the club in his absence.',
   },
   {
     keywords: ['secretary', 'akash', 'akash maurya'],
-    response: 'The Secretary is Akash Maurya. He handles documentation and administrative tasks.',
+    response: '📋 Secretary: Akash Maurya\nAkash handles all documentation, meeting minutes, and administrative tasks for the club.',
   },
   {
-    keywords: ['treasurer', 'swarnim', 'swarnim chaudhary', 'finance'],
-    response: 'The Treasurer is Swarnim Chaudhary. He manages the club\'s finances and budget.',
+    keywords: ['treasurer', 'swarnim', 'swarnim chaudhary', 'finance', 'budget'],
+    response: '💰 Treasurer: Swarnim Chaudhary\nSwarnim manages the club\'s finances, budget allocation, and expense tracking.',
   },
   {
-    keywords: ['media head', 'priyanshi', 'priyanshi goyal', 'media'],
-    response: 'The Media Head is Priyanshi Goyal. She manages social media, content, and club communications.',
+    keywords: ['media head', 'priyanshi', 'priyanshi goyal'],
+    response: '📸 Media Head: Priyanshi Goyal\nPriyanshi manages social media, content creation, photography, and club communications.',
   },
   {
     keywords: ['deputy treasurer', 'krishna', 'krishna gaur'],
-    response: 'The Deputy Treasurer is Krishna Gaur. He assists in financial management.',
+    response: '💰 Deputy Treasurer: Krishna Gaur\nKrishna assists in financial management and budget planning.',
   },
   {
     keywords: ['tech head', 'shiva', 'shiva saroj', 'technical head'],
-    response: 'The Tech Head is Shiva Saroj. He leads all technical projects and development activities.',
+    response: '⚙️ Tech Head: Shiva Saroj\nShiva leads all technical projects, development activities, and technical workshops.',
   },
   {
     keywords: ['media sub head', 'jiwak', 'jiwak kumar'],
-    response: 'The Media Sub Head is Jiwak Kumar. He supports media and content creation.',
+    response: '📸 Media Sub Head: Jiwak Kumar\nJiwak supports media production, video editing, and content creation.',
   },
   {
     keywords: ['management head', 'kshitij', 'kshitij dubey'],
-    response: 'The Management Head is Kshitij Dubey. He oversees event management and logistics.',
-  },
-  {
-    keywords: ['tech sub head', 'utkrisht', 'utkrisht suman'],
-    response: 'The Tech Sub Head is Utkrisht Suman. He supports technical projects and development.',
-  },
-
-  // ── ALL MEMBERS ──
-  {
-    keywords: ['team', 'members', 'who are the members', 'core team', 'all members', 'club members'],
-    response: 'Our core team:\n• Vansh Joshi – President\n• Ansh Upadhyay – Vice President\n• Akash Maurya – Secretary\n• Swarnim Chaudhary – Treasurer\n• Priyanshi Goyal – Media Head\n• Krishna Gaur – Deputy Treasurer\n• Shiva Saroj – Tech Head\n• Jiwak Kumar – Media Sub Head\n• Kshitij Dubey – Management Head\n• Utkrisht Suman – Tech Sub Head',
+    response: '📋 Management Head: Kshitij Dubey\nKshitij oversees event management, logistics, and club operations.',
   },
 
   // ── FACULTY ──
   {
-    keywords: ['who are the coordinators', 'club coordinators', 'both coordinators', 'coordinators name', 'coordinators are'],
-    response: 'Our Club Coordinators are:\n• Dr. Prateek Yadav – Associate Professor in Electronics & Communication (Computer Vision & SLAM)\n• Dr. Navneet Pratap Singh – Assistant Professor (ML & AI Systems)',
-  },
-  {
-    keywords: ['who are the patrons', 'club patrons', 'both patrons', 'patrons name', 'patrons are'],
-    response: 'Our Patrons are:\n• Dr. Pratyush Pranav – Associate Professor (Robotics & Mechatronics)\n• Dr. Manoj Sharma – Senior Lecturer (Electronics & IoT)',
-  },
-  {
-    keywords: ['faculty', 'advisor', 'professor', 'mentor', 'teacher', 'guide'],
-    response: 'Our Faculty:\n\n🎓 Dean: Dr. Rajeev Tiwari (Computer Science – Deep Learning & AI)\n\n👨‍🏫 Patrons:\n• Dr. Pratyush Pranav (Robotics & Mechatronics)\n• Dr. Manoj Sharma (Electronics & IoT)\n\n🧑‍💼 Club Coordinators:\n• Dr. Prateek Yadav (Computer Vision & SLAM)\n• Dr. Navneet Pratap Singh (ML & AI Systems)',
+    keywords: ['faculty', 'advisor', 'professor', 'mentor', 'teacher', 'guide', 'all faculty', 'faculty members'],
+    response: `🎓 RoboGenesis Faculty:
+
+👑 Dean:
+• Dr. Rajeev Tiwari – Professor & Dean, School of Artificial Intelligence, Bennett University
+
+🤝 Patrons:
+• Dr. Pratyush Pranav – Associate Professor (Robot Kinematics, Control Theory, Mechatronics)
+• Dr. Manoj Sharma – Senior Lecturer (Wireless Sensor Networks, Edge Computing, Embedded Hardware)
+
+🧑‍💼 Club Coordinators:
+• Dr. Prateek Yadav – Associate Professor (Real-time Image Processing, Object Detection, Visual SLAM)
+• Dr. Navneet Pratap Singh – Assistant Professor (ML Pipelines, Predictive Analytics, AI Decision Systems)`,
   },
   {
     keywords: ['rajeev', 'rajeev tiwari', 'dean'],
-    response: 'Dr. Rajeev Tiwari is our Dean and Faculty Advisor. He is a Professor of Computer Science with extensive research in deep learning, neural networks, and autonomous intelligent systems.',
+    response: '👑 Dr. Rajeev Tiwari\nRole: Professor & Dean, School of Artificial Intelligence at Bennett University\nHe provides visionary leadership and academic guidance to RoboGenesis.',
   },
   {
-    keywords: ['pratyush', 'pratyush pranav', 'patron'],
-    response: 'Dr. Pratyush Pranav is a Patron of RoboGenesis. He is an Associate Professor specializing in robot kinematics, control theory, and mechatronics.',
+    keywords: ['pratyush', 'pratyush pranav'],
+    response: '🤝 Dr. Pratyush Pranav (Patron)\nAssociate Professor specializing in robot kinematics, control theory, and mechatronics with numerous published research papers.',
   },
   {
     keywords: ['manoj', 'manoj sharma'],
-    response: 'Dr. Manoj Sharma is a Patron of RoboGenesis. He is a Senior Lecturer in Electronics Engineering with expertise in wireless sensor networks and embedded hardware.',
+    response: '🤝 Dr. Manoj Sharma (Patron)\nSenior Lecturer in Electronics Engineering with expertise in wireless sensor networks, edge computing, and embedded hardware design.',
   },
   {
     keywords: ['prateek', 'prateek yadav', 'coordinator'],
-    response: 'Dr. Prateek Yadav is a Club Coordinator. He is an Associate Professor in Electronics & Communication with research in computer vision and visual SLAM systems.',
+    response: '🧑‍💼 Dr. Prateek Yadav (Club Coordinator)\nAssociate Professor in Electronics & Communication. Research focus on real-time image processing, object detection, and visual SLAM systems.',
   },
   {
     keywords: ['navneet', 'navneet pratap', 'navneet singh'],
-    response: 'Dr. Navneet Pratap Singh is a Club Coordinator. He is an Assistant Professor specializing in machine learning pipelines and AI-driven decision systems.',
+    response: '🧑‍💼 Dr. Navneet Pratap Singh (Club Coordinator)\nAssistant Professor specializing in machine learning pipelines, predictive analytics, and AI-driven decision systems.',
   },
 
   // ── PROJECTS ──
   {
-    keywords: ['how many projects', 'number of projects', 'total projects', 'projects done', 'projects completed', 'projects till now', 'how many project'],
-    response: 'RoboGenesis has completed 2 projects so far:\n1. Line Tracing Car\n2. Obstacle Detection Car\n\nMore projects are in the pipeline! Visit our Projects page for full details.',
+    keywords: ['how many projects', 'number of projects', 'total projects', 'projects done', 'projects completed', 'projects till now'],
+    response: 'RoboGenesis has completed 2 projects so far:\n1. 🚗 Line Tracing Car\n2. 🤖 Obstacle Detection Car\n\nMore projects are currently in development!',
   },
   {
-    keywords: ['projects', 'what have you built', 'portfolio', 'work', 'built'],
-    response: 'Our projects:\n\n🤖 Line Tracing Car – Autonomous robot using IR sensors & PID control (Arduino, C++)\n\n🚗 Obstacle Detection Car – Smart robot with ultrasonic sensors for real-time obstacle avoidance (Arduino, C++)\n\nVisit our Projects page to see full details!',
+    keywords: ['projects', 'what have you built', 'portfolio', 'work', 'built', 'all projects', 'show projects'],
+    response: `🛠️ RoboGenesis Projects:
+
+1. 🚗 Line Tracing Car (Robotics)
+   Autonomous robot following a line using IR sensors & PID control.
+   Tech: Arduino, C++, IR Sensors, PID Control, Motor Drivers
+   Features: 5-channel IR array, smooth cornering, real-time error correction
+
+2. 🤖 Obstacle Detection Car (Robotics)
+   Smart robot detecting & avoiding obstacles using ultrasonic sensors.
+   Tech: Arduino, C++, Ultrasonic Sensor, IR Sensors, Servo Motor
+   Features: 180° scanning, dynamic path replanning, <50ms response time`,
   },
   {
     keywords: ['line tracing', 'line following', 'line car'],
-    response: 'The Line Tracing Car is an autonomous robot that follows a predefined line path using IR sensors and PID control. It features high-speed navigation with smooth cornering and real-time error correction. Built with Arduino and C++.',
+    response: `🚗 Line Tracing Car:
+
+An autonomous robot that follows a predefined line path.
+
+📋 Key Features:
+• 5-channel IR sensor array for precise line detection
+• PID control for smooth and accurate navigation
+• High-speed DC motors with L298N motor driver
+• Real-time error correction through curves
+
+⚙️ Specs:
+• Microcontroller: Arduino Uno (ATmega328P)
+• Sensors: 5x IR proximity sensors
+• Motors: 2x DC gear motors (200 RPM)
+• Power: 7.4V LiPo battery
+• Speed: Up to 0.5 m/s`,
   },
   {
     keywords: ['obstacle', 'obstacle detection', 'obstacle car'],
-    response: 'The Obstacle Detection Car is a smart robot equipped with ultrasonic and IR sensors to detect and autonomously avoid obstacles in real time. It features dynamic path replanning and collision-free navigation. Built with Arduino, C++, and Servo Motor.',
+    response: `🤖 Obstacle Detection Car:
+
+A smart robot that detects and avoids obstacles autonomously.
+
+📋 Key Features:
+• HC-SR04 ultrasonic sensor for distance measurement
+• Servo motor for 180° environment scanning
+• Dynamic path replanning algorithm
+• Collision-free navigation in unknown environments
+
+⚙️ Specs:
+• Microcontroller: Arduino Uno
+• Primary Sensor: HC-SR04 Ultrasonic (2cm–400cm range)
+• Side Sensors: 2x IR proximity sensors
+• Servo: SG90 (180° rotation)
+• Detection Range: 2cm to 200cm
+• Response Time: <50ms`,
   },
 
   // ── EVENTS ──
   {
-    keywords: ['events', 'upcoming events', 'what events', 'next event', 'upcoming', 'which event', 'any event', 'event coming', 'coming event', 'future event', 'schedule', 'when is', 'what is coming'],
-    response: 'Upcoming Event:\n\n🔥 Deep Sight – April 24, 2026\nAn 18-hour hackathon focused on computer vision and AI. Teams build intelligent vision systems. Open to all Bennett University students!\n\nPast events include: Robotics Expo 2025, ML Study Group, Embedded Systems Workshop, and Industry Talk on AI in Robotics.',
+    keywords: ['events', 'upcoming events', 'what events', 'next event', 'upcoming', 'which event', 'any event', 'event coming', 'future event', 'schedule', 'all events'],
+    response: `📅 RoboGenesis Events:
+
+🔥 Upcoming:
+• Deep Sight – April 24, 2026
+  18-hour hackathon on Computer Vision & AI
+  Open to all Bennett University students
+  Register: unstop.com (link on Events page)
+
+✅ Past Events:
+• Workshop on Line Maze Solver (Jan 2026)`,
   },
   {
     keywords: ['deep sight', 'deepsight', 'hackathon', 'vision hackathon'],
-    response: 'Deep Sight is our upcoming 18-hour hackathon on April 24, 2026! Teams will build intelligent vision systems — from object detection to real-time scene understanding. Open to all university students. Register via our Contact page!',
-  },
-  {
-    keywords: ['robotics expo', 'expo 2025'],
-    response: 'Robotics Expo 2025 was our annual showcase with 200+ attendees, 15 project demos, and 3 industry partnerships. The Best Project award went to the Hexapod Walker team!',
-  },
-  {
-    keywords: ['ml study', 'machine learning study', 'study group'],
-    response: 'The ML Study Group Kickoff had 40 students enrolled, covering topics from linear regression to transformers over 12 weeks.',
-  },
-  {
-    keywords: ['embedded workshop', 'embedded systems workshop'],
-    response: 'The Embedded Systems Workshop had participants build a working temperature-controlled fan system using STM32 and FreeRTOS.',
+    response: `🔥 Deep Sight Hackathon:
+
+📅 Date: April 24, 2026
+⏱️ Duration: 18 hours
+🎯 Theme: Computer Vision & AI
+
+Teams will build intelligent vision systems — from object detection to real-time scene understanding.
+
+✅ Open to all Bennett University students
+🔗 Register on Unstop (link available on our Events page)`,
   },
 
   // ── CONTACT ──
   {
-    keywords: ['contact', 'email', 'reach', 'message', 'talk', 'connect'],
-    response: 'You can reach us at:\n📧 robogenesis@bennett.edu.in\n\nOr fill out the Contact form on our website. We typically respond within 24 hours!',
+    keywords: ['contact', 'email', 'reach', 'message', 'talk', 'connect', 'get in touch'],
+    response: `📬 Contact RoboGenesis:
+
+📧 Email: robogenesis@bennett.edu.in
+📍 Location: Bennett University, Greater Noida, UP, India
+
+💬 You can also fill out the Contact form on our website.
+We typically respond within 24 hours!`,
   },
 
-  // ── SOCIAL ──
+  // ── SOCIAL MEDIA ──
   {
-    keywords: ['instagram', 'linkedin', 'github', 'social media', 'follow'],
-    response: 'Follow us on:\n📸 Instagram: @robogenesis\n💼 LinkedIn: RoboGenesis\n💻 GitHub: github.com/robogenesis',
+    keywords: ['instagram', 'linkedin', 'github', 'social media', 'follow', 'social'],
+    response: `📱 Follow RoboGenesis:
+
+📸 Instagram: @robogenesis_bu
+💼 LinkedIn: RoboGenesis Club
+💻 GitHub: github.com/robogenesis`,
   },
 
   // ── UNIVERSITY ──
   {
-    keywords: ['bennett', 'university', 'college', 'where'],
-    response: 'RoboGenesis is a tech club at Bennett University, Greater Noida. Visit the university website at https://www.bennett.edu.in/',
+    keywords: ['bennett', 'university', 'college', 'where', 'location', 'campus'],
+    response: '🏫 RoboGenesis is based at Bennett University, Greater Noida, Uttar Pradesh, India.\nWebsite: https://www.bennett.edu.in/',
   },
 
   // ── BLOG ──
   {
-    keywords: ['blog', 'tutorial', 'learn', 'resources', 'article', 'read'],
-    response: 'Check out our Blog & Resources page for tutorials on ROS 2, PyTorch, IoT, and more — written by our own members!',
+    keywords: ['blog', 'tutorial', 'learn', 'resources', 'article', 'read', 'ros', 'ros2'],
+    response: `📚 RoboGenesis Blog:
+
+We publish tutorials and articles written by our members:
+
+📖 Getting Started with ROS 2 – A beginner's guide to setting up ROS 2 workspace and writing publisher/subscriber nodes.
+
+More articles on PyTorch, IoT, Embedded Systems, and Computer Vision coming soon!`,
   },
 
   // ── GALLERY ──
   {
-    keywords: ['gallery', 'photos', 'pictures', 'images', 'see'],
-    response: 'Visit our Gallery page to see photos from our events, workshops, and project demos!',
-  },
-
-  // ── GREETINGS ──
-  {
-    keywords: ['hi', 'hello', 'hey', 'hii', 'helo', 'namaste'],
-    response: 'Hello! 👋 Welcome to RoboGenesis! I can help you with info about our team, projects, events, faculty, and more. What would you like to know?',
-  },
-  {
-    keywords: ['thanks', 'thank you', 'thankyou', 'great', 'awesome'],
-    response: 'You\'re welcome! 😊 Feel free to ask anything else about RoboGenesis!',
+    keywords: ['gallery', 'photos', 'pictures', 'images'],
+    response: '🖼️ Our Gallery has photos from events, workshops, and project demos including team photos, certificate ceremonies, and robotics workshops at Bennett University.',
   },
 
   // ── FALLBACK ──
   {
     keywords: [],
-    response: 'I\'m not sure about that. You can ask me about our team members, projects, events, faculty, or how to join. Or email us at robogenesis@bennett.edu.in!',
+    response: 'I\'m not sure about that. You can ask me about:\n• 👥 Team members & roles\n• 🛠️ Projects\n• 📅 Events\n• 🎓 Faculty\n• 📬 Contact info\n• ℹ️ About the club\n\nOr email us at robogenesis@bennett.edu.in!',
   },
 ]
 
 export function getResponse(input: string): string {
-  const lower = input.toLowerCase()
-  // Sort by keyword length descending so more specific matches win
-  const sorted = [...rules].sort((a, b) => {
-    const aMax = Math.max(...a.keywords.map(k => k.length), 0)
-    const bMax = Math.max(...b.keywords.map(k => k.length), 0)
-    return bMax - aMax
-  })
-  const match = sorted.find((r) => r.keywords.length > 0 && r.keywords.some((k) => lower.includes(k)))
+  const lower = input.toLowerCase().trim()
+
+  // Sort rules by longest keyword match first (more specific wins)
+  const sorted = [...rules].filter(r => r.keywords.length > 0)
+    .sort((a, b) => {
+      const aMax = Math.max(...a.keywords.map(k => k.length))
+      const bMax = Math.max(...b.keywords.map(k => k.length))
+      return bMax - aMax
+    })
+
+  const match = sorted.find(r => r.keywords.some(k => lower.includes(k)))
   return match?.response ?? rules[rules.length - 1].response
 }
