@@ -115,7 +115,7 @@ No prior experience needed — just curiosity and enthusiasm! 🚀`,
     keywords: ['who are the coordinators', 'club coordinators', 'both coordinators', 'coordinators name', 'coordinators are', 'coordinator'],
     response: `🧑‍💼 Club Coordinators:
 
-• Dr. Prateek Yadav – Associate Professor in Electronics & Communication
+• Dr. Prateek Yadav – Assistant Professor in Electronics & Communication
   Research: Real-time image processing, object detection, visual SLAM systems
 
 • Dr. Navneet Pratap Singh – Assistant Professor
@@ -133,7 +133,7 @@ No prior experience needed — just curiosity and enthusiasm! 🚀`,
 • Dr. Manoj Sharma – Senior Lecturer (Wireless Sensor Networks, Edge Computing, Embedded Hardware)
 
 🧑‍💼 Club Coordinators:
-• Dr. Prateek Yadav – Associate Professor (Real-time Image Processing, Object Detection, Visual SLAM)
+• Dr. Prateek Yadav – Assistant Professor (Real-time Image Processing, Object Detection, Visual SLAM)
 • Dr. Navneet Pratap Singh – Assistant Professor (ML Pipelines, Predictive Analytics, AI Decision Systems)`,
   },
   {
@@ -150,7 +150,7 @@ No prior experience needed — just curiosity and enthusiasm! 🚀`,
   },
   {
     keywords: ['prateek', 'prateek yadav'],
-    response: '🧑‍💼 Dr. Prateek Yadav (Club Coordinator)\nAssociate Professor in Electronics & Communication. Research focus on real-time image processing, object detection, and visual SLAM systems.',
+    response: '🧑‍💼 Dr. Prateek Yadav (Club Coordinator)\nAssistant Professor in Electronics & Communication. Research focus on real-time image processing, object detection, and visual SLAM systems.',
   },
   {
     keywords: ['navneet', 'navneet pratap', 'navneet singh'],
