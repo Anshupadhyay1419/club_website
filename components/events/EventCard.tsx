@@ -37,7 +37,7 @@ export default function EventCard({ event, variant }: EventCardProps) {
   }
 
   return (
-    <GlassCard className="flex flex-col h-full gradient-border relative overflow-hidden">
+    <div className="glass gradient-border relative overflow-hidden rounded-2xl p-6 flex flex-col h-full">
       {/* Accent top bar */}
       <div className="absolute top-0 left-0 right-0 h-1 animated-gradient"
         style={{ background: 'linear-gradient(90deg, var(--accent), var(--accent2), var(--accent3))' }} />
@@ -50,13 +50,16 @@ export default function EventCard({ event, variant }: EventCardProps) {
         {event.registrationLink && (
           <a
             href={event.registrationLink}
-            className="mt-4 w-full min-h-[44px] flex items-center justify-center rounded-lg font-semibold text-sm text-white transition-all duration-200"
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={(e) => { e.stopPropagation(); window.open(event.registrationLink, '_blank'); }}
+            className="mt-4 w-full min-h-[44px] flex items-center justify-center rounded-lg font-semibold text-sm text-white transition-all duration-200 cursor-pointer relative z-10"
             style={{ background: 'linear-gradient(135deg, var(--accent), var(--accent2))', boxShadow: '0 0 16px var(--glow)' }}
           >
             Register Now →
           </a>
         )}
       </div>
-    </GlassCard>
+    </div>
   )
 }
