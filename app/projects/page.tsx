@@ -10,7 +10,7 @@ import ScrollReveal from '@/components/ui/ScrollReveal'
 import { projects } from '@/data/projects'
 import type { Project } from '@/types'
 
-const FILTER_OPTIONS = ['All', 'AI', 'Robotics', 'IoT']
+const FILTER_OPTIONS = ['All', 'AI', 'Robotics']
 
 export default function ProjectsPage() {
   const [activeFilter, setActiveFilter] = useState('All')
@@ -26,7 +26,7 @@ export default function ProjectsPage() {
       <ScrollReveal>
         <SectionHeading
           title="Our Projects"
-          subtitle="Explore what we've been building across AI, Robotics, and IoT"
+          subtitle="Explore what we've been building across AI, and Robotics"
         />
       </ScrollReveal>
 

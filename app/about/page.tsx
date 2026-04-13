@@ -28,7 +28,6 @@ const focusAreas = [
   { icon: Cpu, title: 'Artificial Intelligence', description: 'Building intelligent systems using machine learning, deep learning, and computer vision.' },
   { icon: Bot, title: 'Robotics', description: 'Designing and programming autonomous robots for real-world applications.' },
   { icon: Wifi, title: 'Internet of Things', description: 'Connecting the physical world through smart sensors, networks, and cloud platforms.' },
-  { icon: CircuitBoard, title: 'Embedded Systems', description: 'Programming microcontrollers and building efficient, low-level hardware solutions.' },
 ]
 
 export default function AboutPage() {
@@ -76,7 +75,7 @@ export default function AboutPage() {
 
       {/* Section 1: Club Coordinators */}
       <ScrollReveal>
-        <h3 className="text-2xl font-bold mb-6 text-center" style={{ color: 'var(--text-primary)' }}>Our Club Coordinators</h3>
+        <h3 className="text-2xl font-bold mb-6 text-center" style={{ color: 'var(--text-primary)' }}>Club Coordinators</h3>
       </ScrollReveal>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-14">
         {[facultyMembers[3], facultyMembers[4]].map((faculty, i) => (
@@ -88,7 +87,7 @@ export default function AboutPage() {
 
       {/* Section 2: Patrons */}
       <ScrollReveal>
-        <h3 className="text-2xl font-bold mb-6 text-center" style={{ color: 'var(--text-primary)' }}>Our Patron</h3>
+        <h3 className="text-2xl font-bold mb-6 text-center" style={{ color: 'var(--text-primary)' }}>Patron</h3>
       </ScrollReveal>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-14">
         {[facultyMembers[1], facultyMembers[2]].map((faculty, i) => (
@@ -100,7 +99,7 @@ export default function AboutPage() {
 
       {/* Section 3: Dean */}
       <ScrollReveal>
-        <h3 className="text-2xl font-bold mb-6 text-center" style={{ color: 'var(--text-primary)' }}>Our Dean</h3>
+        <h3 className="text-2xl font-bold mb-6 text-center" style={{ color: 'var(--text-primary)' }}>Dean</h3>
       </ScrollReveal>
       <div className="flex justify-center mb-14">
         <div className="w-full max-w-sm">
