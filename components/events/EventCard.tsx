@@ -39,12 +39,19 @@ export default function EventCard({ event, variant }: EventCardProps) {
       {/* Accent top bar */}
       <div className="absolute top-0 left-0 right-0 h-1 animated-gradient"
         style={{ background: 'linear-gradient(90deg, var(--accent), var(--accent2), var(--accent3))' }} />
-      <div className="pt-4">
+      <div className="pt-4 flex flex-col flex-1">
         <div className="badge mb-3">Upcoming</div>
         <h3 className="text-xl font-bold mb-1 font-[var(--font-space-grotesk)]" style={{ color: 'var(--text-primary)' }}>{event.title}</h3>
         <p className="text-sm mb-3 font-semibold" style={{ color: 'var(--accent)' }}>{formattedDate}</p>
         <p className="text-base leading-relaxed mb-5 flex-1" style={{ color: 'var(--text-secondary)' }}>{event.description}</p>
         <CountdownTimer date={event.date} />
+        {event.registrationLink && (
+          <a href={event.registrationLink} target="_blank" rel="noopener noreferrer"
+            className="mt-4 w-full min-h-[44px] flex items-center justify-center rounded-lg font-semibold text-sm text-white transition-all duration-200"
+            style={{ background: 'linear-gradient(135deg, var(--accent), var(--accent2))', boxShadow: '0 0 16px var(--glow)' }}>
+            Register Now →
+          </a>
+        )}
       </div>
     </GlassCard>
   )
