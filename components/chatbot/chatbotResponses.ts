@@ -112,6 +112,16 @@ No prior experience needed — just curiosity and enthusiasm! 🚀`,
 
   // ── FACULTY ──
   {
+    keywords: ['who are the coordinators', 'club coordinators', 'both coordinators', 'coordinators name', 'coordinators are', 'coordinator'],
+    response: `🧑‍💼 Club Coordinators:
+
+• Dr. Prateek Yadav – Associate Professor in Electronics & Communication
+  Research: Real-time image processing, object detection, visual SLAM systems
+
+• Dr. Navneet Pratap Singh – Assistant Professor
+  Research: Machine learning pipelines, predictive analytics, AI-driven decision systems`,
+  },
+  {
     keywords: ['faculty', 'advisor', 'professor', 'mentor', 'teacher', 'guide', 'all faculty', 'faculty members'],
     response: `🎓 RoboGenesis Faculty:
 
@@ -139,7 +149,7 @@ No prior experience needed — just curiosity and enthusiasm! 🚀`,
     response: '🤝 Dr. Manoj Sharma (Patron)\nSenior Lecturer in Electronics Engineering with expertise in wireless sensor networks, edge computing, and embedded hardware design.',
   },
   {
-    keywords: ['prateek', 'prateek yadav', 'coordinator'],
+    keywords: ['prateek', 'prateek yadav'],
     response: '🧑‍💼 Dr. Prateek Yadav (Club Coordinator)\nAssociate Professor in Electronics & Communication. Research focus on real-time image processing, object detection, and visual SLAM systems.',
   },
   {
