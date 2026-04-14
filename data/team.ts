@@ -5,7 +5,7 @@ export const teamMembers: TeamMember[] = [
     id: 't1',
     name: 'Vansh Joshi',
     role: 'President',
-    photo: '/images/team/Vansh.jpeg',
+    photo: 'https://res.cloudinary.com/dfkbt26ga/image/upload/v1776152027/vansh_c6hvgl.png',
     skills: [],
     linkedinUrl: '',
     githubUrl: '',
