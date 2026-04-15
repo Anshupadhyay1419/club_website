@@ -20,6 +20,7 @@ export interface Event {
   highlights?: string // for past events
   isPast: boolean
   registrationLink?: string // external registration URL
+  websiteLink?: string // event website URL
 }
 
 export interface TeamMember {

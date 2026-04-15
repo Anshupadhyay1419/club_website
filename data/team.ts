@@ -32,7 +32,7 @@ export const teamMembers: TeamMember[] = [
     id: 't4',
     name: 'Swarnim Chaudhary',
     role: 'Treasurer',
-    photo: '/images/team/Swarnim.jpg',
+    photo: 'https://res.cloudinary.com/dfkbt26ga/image/upload/v1776277634/swarnim_wiv77t.jpg',
     skills: [],
     linkedinUrl: '',
     githubUrl: '',

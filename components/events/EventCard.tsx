@@ -59,6 +59,18 @@ export default function EventCard({ event, variant }: EventCardProps) {
             Register Now →
           </a>
         )}
+        {event.websiteLink && (
+          <a
+            href={event.websiteLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={(e) => { e.stopPropagation(); window.open(event.websiteLink, '_blank'); }}
+            className="mt-2 w-full min-h-[44px] flex items-center justify-center rounded-lg font-semibold text-sm transition-all duration-200 cursor-pointer relative z-10"
+            style={{ border: '1px solid var(--accent)', color: 'var(--accent)', background: 'var(--accent-soft)' }}
+          >
+            View Event Website →
+          </a>
+        )}
       </div>
     </div>
   )

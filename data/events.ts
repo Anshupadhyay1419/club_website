@@ -9,6 +9,7 @@ export const events: Event[] = [
     date: '2026-04-24T09:00:00.000Z',
     isPast: false,
     registrationLink: 'https://unstop.com/o/ufK6vyn?lb=o3OgcqGt&utm_medium=Share&utm_source=tslmqvdo67994&utm_campaign=Online_coding_challenge',
+    websiteLink: 'https://deep-sight.vercel.app/deepsight.html',
   },
   // Past events
   {
