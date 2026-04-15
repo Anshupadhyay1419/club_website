@@ -47,7 +47,7 @@ export default function EventCard({ event, variant }: EventCardProps) {
         <p className="text-sm mb-3 font-semibold" style={{ color: 'var(--accent)' }}>{formattedDate}</p>
         <p className="text-base leading-relaxed mb-5 flex-1" style={{ color: 'var(--text-secondary)' }}>{event.description}</p>
         <CountdownTimer date={event.date} />
-        {event.registrationLink && (
+        {!event.isPast && event.registrationLink && (
           <a
             href={event.registrationLink}
             target="_blank"
@@ -59,7 +59,7 @@ export default function EventCard({ event, variant }: EventCardProps) {
             Register Now →
           </a>
         )}
-        {event.websiteLink && (
+        {!event.isPast && event.websiteLink && (
           <a
             href={event.websiteLink}
             target="_blank"
