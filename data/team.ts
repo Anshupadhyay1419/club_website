@@ -77,7 +77,7 @@ export const teamMembers: TeamMember[] = [
     id: 't9',
     name: 'Kshitij Dubey',
     role: 'Management Head',
-    photo: '/images/team/Kshitij.png',
+    photo: 'https://res.cloudinary.com/dfkbt26ga/image/upload/v1776276046/kshitij_givj6p.jpg',
     skills: [],
     linkedinUrl: '',
     githubUrl: '',
