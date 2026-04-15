@@ -59,7 +59,7 @@ export const teamMembers: TeamMember[] = [
     id: 't7',
     name: 'Shiva Saroj',
     role: 'Tech Head',
-    photo: '/images/team/Shiva.png',
+    photo: 'https://res.cloudinary.com/dfkbt26ga/image/upload/v1776276174/shiva_kjcnyw.jpg',
     skills: [],
     linkedinUrl: '',
     githubUrl: '',
