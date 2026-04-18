@@ -12,7 +12,7 @@ export const teamMembers: TeamMember[] = [
   },
   {
     id: 't2',
-    name: 'Ansh',
+    name: 'Ansh Upadhyay',
     role: 'Vice President',
     photo: 'https://res.cloudinary.com/dfkbt26ga/image/upload/v1776106351/me4_guvhhm.jpg',
     skills: [],
