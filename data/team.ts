@@ -21,7 +21,7 @@ export const teamMembers: TeamMember[] = [
   },
   {
     id: 't3',
-    name: 'Akash',
+    name: 'Akash Maurya',
     role: 'Secretary',
     photo: 'https://res.cloudinary.com/dfkbt26ga/image/upload/v1776230474/akash_v5elcd.png',
     skills: [],
