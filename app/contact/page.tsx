@@ -1,7 +1,7 @@
-import { Mail } from 'lucide-react'
-import ContactForm from '@/components/contact/ContactForm'
+import { Mail, Users, MapPin } from 'lucide-react'
 import SectionHeading from '@/components/ui/SectionHeading'
 import ScrollReveal from '@/components/ui/ScrollReveal'
+import GlassCard from '@/components/ui/GlassCard'
 
 const socialLinks = [
   {
@@ -31,24 +31,74 @@ export default function ContactPage() {
         />
       </ScrollReveal>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-        <ScrollReveal>
-          <ContactForm />
-        </ScrollReveal>
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
 
-        <ScrollReveal delay={0.15}>
-          <div className="space-y-8">
+        {/* Left: Collab + Email card */}
+        <ScrollReveal>
+          <GlassCard className="space-y-8">
+            {/* Collab button */}
             <div>
-              <h3 className="text-lg font-bold mb-3 font-[var(--font-space-grotesk)]" style={{ color: 'var(--text-primary)' }}>Email Us</h3>
-              <a href="mailto:robogenesis@bennett.edu.in"
-                className="flex items-center gap-3 transition-colors duration-200 hover:opacity-80"
-                style={{ color: 'var(--text-secondary)' }}>
-                <Mail size={20} style={{ color: 'var(--accent)' }} />
-                <span className="text-lg select-all">robogenesis@bennett.edu.in</span>
+              <h3 className="text-xl font-bold mb-2 font-[var(--font-space-grotesk)]" style={{ color: 'var(--text-primary)' }}>
+                Want to Collaborate?
+              </h3>
+              <p className="text-sm mb-5 leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
+                Click the button below to open your email app and send us a message directly. Works with Gmail, Outlook, and any other email client.
+              </p>
+              <a
+                href="mailto:robogenesis@bennett.edu.in?subject=Collaboration%20Inquiry&body=Hi%20RoboGenesis%20Team%2C%0A%0AI%20would%20like%20to%20collaborate%20with%20you%20on..."
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-bold text-white min-h-[44px] transition-all duration-200 hover:scale-105"
+                style={{ background: 'linear-gradient(135deg, var(--accent), var(--accent2))', boxShadow: '0 0 20px var(--glow)' }}
+              >
+                <Users size={18} />
+                Collab with Us
               </a>
             </div>
+
+            {/* Divider */}
+            <div style={{ borderTop: '1px solid var(--border)' }} />
+
+            {/* Email */}
             <div>
-              <h3 className="text-lg font-bold mb-4 font-[var(--font-space-grotesk)]" style={{ color: 'var(--text-primary)' }}>Follow Us</h3>
+              <h3 className="text-lg font-bold mb-3 font-[var(--font-space-grotesk)]" style={{ color: 'var(--text-primary)' }}>
+                Email Us Directly
+              </h3>
+              <a href="mailto:robogenesis@bennett.edu.in"
+                className="flex items-center gap-3 transition-all duration-200 hover:opacity-80"
+                style={{ color: 'var(--text-secondary)' }}>
+                <div className="w-9 h-9 flex items-center justify-center rounded-lg flex-shrink-0"
+                  style={{ background: 'var(--accent-soft)', color: 'var(--accent)' }}>
+                  <Mail size={16} />
+                </div>
+                <span className="text-base select-all">robogenesis@bennett.edu.in</span>
+              </a>
+            </div>
+
+            {/* Location */}
+            <div>
+              <h3 className="text-lg font-bold mb-3 font-[var(--font-space-grotesk)]" style={{ color: 'var(--text-primary)' }}>
+                Location
+              </h3>
+              <div className="flex items-center gap-3" style={{ color: 'var(--text-secondary)' }}>
+                <div className="w-9 h-9 flex items-center justify-center rounded-lg flex-shrink-0"
+                  style={{ background: 'var(--accent-soft)', color: 'var(--accent)' }}>
+                  <MapPin size={16} />
+                </div>
+                <span className="text-sm">Bennett University, Greater Noida, UP, India</span>
+              </div>
+            </div>
+          </GlassCard>
+        </ScrollReveal>
+
+        {/* Right: Social + Follow */}
+        <ScrollReveal delay={0.15}>
+          <GlassCard className="space-y-8">
+            <div>
+              <h3 className="text-xl font-bold mb-2 font-[var(--font-space-grotesk)]" style={{ color: 'var(--text-primary)' }}>
+                Follow Us
+              </h3>
+              <p className="text-sm mb-6" style={{ color: 'var(--text-secondary)' }}>
+                Stay updated with our latest projects, events, and announcements.
+              </p>
               <div className="flex gap-4">
                 {socialLinks.map(({ href, label, svg }) => (
                   <a key={label} href={href} target="_blank" rel="noopener noreferrer" aria-label={label}
@@ -59,7 +109,26 @@ export default function ContactPage() {
                 ))}
               </div>
             </div>
-          </div>
+
+            <div style={{ borderTop: '1px solid var(--border)' }} />
+
+            <div>
+              <h3 className="text-xl font-bold mb-2 font-[var(--font-space-grotesk)]" style={{ color: 'var(--text-primary)' }}>
+                Join RoboGenesis
+              </h3>
+              <p className="text-sm mb-5 leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
+                Are you a Bennett University student passionate about AI, Robotics, or Innovation? We'd love to have you on the team!
+              </p>
+              <a
+                href="mailto:robogenesis@bennett.edu.in?subject=Join%20RoboGenesis&body=Hi%20RoboGenesis%20Team%2C%0A%0AI%20am%20interested%20in%20joining%20the%20club.%0A%0AName%3A%0ADepartment%3A%0ASemester%3A%0ASkills%3A"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-bold min-h-[44px] transition-all duration-200 hover:scale-105"
+                style={{ border: '1px solid var(--accent)', color: 'var(--accent)', background: 'var(--accent-soft)' }}
+              >
+                <Mail size={18} />
+                Apply to Join
+              </a>
+            </div>
+          </GlassCard>
         </ScrollReveal>
       </div>
     </div>
