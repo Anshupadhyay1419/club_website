@@ -97,9 +97,20 @@ export default function ContributePage() {
 
             {/* UPI ID display */}
             <div className="rounded-xl p-5 mb-5" style={{ background: 'var(--bg-muted)', border: '1px solid var(--border)' }}>
-              <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: 'var(--text-muted)' }}>UPI ID</p>
+              <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: 'var(--text-muted)' }}>UPI Payment</p>
               <p className="text-xl font-bold font-mono mb-1" style={{ color: 'var(--accent)' }}>{UPI_ID}</p>
-              <p className="text-xs" style={{ color: 'var(--text-muted)' }}>Copy this ID in GPay, PhonePe, Paytm, or any UPI app</p>
+              <p className="text-xs mb-3" style={{ color: 'var(--text-muted)' }}>Copy this ID in GPay, PhonePe, Paytm, or any UPI app</p>
+              <div className="flex items-center gap-2 p-3 rounded-lg" style={{ background: 'var(--accent-soft)', border: '1px solid var(--border-accent)' }}>
+                <span className="text-base">🔐</span>
+                <div>
+                  <p className="text-xs font-bold" style={{ color: 'var(--text-primary)' }}>
+                    Registered to: <span style={{ color: 'var(--accent)' }}>Swarnim Chaudhary</span>
+                  </p>
+                  <p className="text-xs" style={{ color: 'var(--text-muted)' }}>
+                    Club Treasurer, RoboGenesis — Bennett University
+                  </p>
+                </div>
+              </div>
             </div>
 
             {/* Donation tiers */}
