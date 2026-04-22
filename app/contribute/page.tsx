@@ -1,4 +1,4 @@
-import { Cpu, Package, Mail, Shield, CheckCircle } from 'lucide-react'
+import { Cpu, Package, Mail, Shield, CheckCircle, Heart } from 'lucide-react'
 import GlassCard from '@/components/ui/GlassCard'
 import SectionHeading from '@/components/ui/SectionHeading'
 import ScrollReveal from '@/components/ui/ScrollReveal'
