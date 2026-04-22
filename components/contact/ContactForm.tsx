@@ -46,8 +46,9 @@ export default function ContactForm() {
       )
       setSubmitted(true)
       reset()
-    } catch (err) {
-      setError('Failed to send message. Please try again or email us directly.')
+    } catch (err: any) {
+      console.error('EmailJS error:', err)
+      setError(`Failed to send: ${err?.text || err?.message || 'Unknown error'}. Please email us directly at robogenesis@bennett.edu.in`)
     } finally {
       setSending(false)
     }
