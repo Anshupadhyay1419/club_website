@@ -3,6 +3,10 @@ import GlassCard from '@/components/ui/GlassCard'
 import SectionHeading from '@/components/ui/SectionHeading'
 import ScrollReveal from '@/components/ui/ScrollReveal'
 
+const UPI_ID = '8178095270@upi'
+const UPI_NAME = 'RoboGenesis'
+const UPI_LINK = `upi://pay?pa=${UPI_ID}&pn=${encodeURIComponent(UPI_NAME)}&cu=INR`
+
 const hardwareWishlist = [
   { name: 'Raspberry Pi 5', category: 'Computing', priority: 'High', use: 'AI edge computing & vision projects' },
   { name: 'Arduino Mega 2560', category: 'Microcontroller', priority: 'High', use: 'Robotics control systems' },
@@ -26,6 +30,13 @@ const priorityColor: Record<string, string> = {
   Medium: '#f59e0b',
   Low: '#22c55e',
 }
+
+const donationTiers = [
+  { amount: '₹500', label: 'Buys 2 ultrasonic sensors' },
+  { amount: '₹1,000', label: 'Funds a motor driver kit' },
+  { amount: '₹2,500', label: 'Sponsors an Arduino board' },
+  { amount: '₹5,000+', label: 'Funds a full project build' },
+]
 
 export default function ContributePage() {
   return (
@@ -68,7 +79,7 @@ export default function ContributePage() {
 
         {/* Monetary Donation */}
         <ScrollReveal>
-          <GlassCard hoverGlow className="h-full">
+          <GlassCard hoverGlow className="h-full flex flex-col">
             <div className="flex items-center gap-3 mb-6">
               <div className="w-12 h-12 rounded-xl flex items-center justify-center text-2xl"
                 style={{ background: 'var(--accent-soft)' }}>💰</div>
@@ -84,25 +95,16 @@ export default function ContributePage() {
               Your donation helps us purchase components, sensors, and tools needed to build real-world robotics and AI projects. Every rupee goes directly into student innovation.
             </p>
 
-            {/* UPI Section */}
-            <div className="rounded-xl p-5 mb-6" style={{ background: 'var(--bg-muted)', border: '1px solid var(--border)' }}>
-              <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: 'var(--text-muted)' }}>UPI Payment</p>
-              <div className="flex items-center justify-between gap-3">
-                <div>
-                  <p className="text-lg font-bold font-mono" style={{ color: 'var(--accent)' }}>8178095270@upi</p>
-                  <p className="text-xs mt-1" style={{ color: 'var(--text-muted)' }}>Scan or copy UPI ID</p>
-                </div>
-                <div className="text-3xl">📱</div>
-              </div>
+            {/* UPI ID display */}
+            <div className="rounded-xl p-5 mb-5" style={{ background: 'var(--bg-muted)', border: '1px solid var(--border)' }}>
+              <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: 'var(--text-muted)' }}>UPI ID</p>
+              <p className="text-xl font-bold font-mono mb-1" style={{ color: 'var(--accent)' }}>{UPI_ID}</p>
+              <p className="text-xs" style={{ color: 'var(--text-muted)' }}>Copy this ID in GPay, PhonePe, Paytm, or any UPI app</p>
             </div>
 
-            <div className="space-y-2 mb-6">
-              {[
-                { amount: '₹500', label: 'Buys 2 ultrasonic sensors' },
-                { amount: '₹1,000', label: 'Funds a motor driver kit' },
-                { amount: '₹2,500', label: 'Sponsors an Arduino board' },
-                { amount: '₹5,000+', label: 'Funds a full project build' },
-              ].map((tier) => (
+            {/* Donation tiers */}
+            <div className="space-y-2 mb-6 flex-1">
+              {donationTiers.map((tier) => (
                 <div key={tier.amount} className="flex items-center gap-3 p-3 rounded-lg"
                   style={{ background: 'var(--bg-muted)', border: '1px solid var(--border)' }}>
                   <span className="font-bold text-sm" style={{ color: 'var(--accent)' }}>{tier.amount}</span>
@@ -111,18 +113,24 @@ export default function ContributePage() {
               ))}
             </div>
 
-            <a href="mailto:robogenesis@bennett.edu.in?subject=Monetary%20Donation%20to%20RoboGenesis&body=Hi%20RoboGenesis%20Team%2C%0A%0AI%20would%20like%20to%20make%20a%20monetary%20donation%20to%20support%20your%20club.%0A%0AAmount%3A%0AUPI%20Transaction%20ID%3A%0AName%3A%0A%0AThank%20you!"
-              className="w-full min-h-[44px] flex items-center justify-center gap-2 rounded-xl font-bold text-white transition-all duration-200 hover:scale-[1.02]"
-              style={{ background: 'linear-gradient(135deg, var(--accent), var(--accent2))', boxShadow: '0 0 20px var(--glow)' }}>
+            {/* Donate Now — UPI deep link opens GPay/PhonePe/Paytm on mobile */}
+            <a
+              href={UPI_LINK}
+              className="w-full min-h-[44px] flex items-center justify-center gap-2 rounded-xl font-bold text-white transition-all duration-200 hover:scale-[1.02] mb-3"
+              style={{ background: 'linear-gradient(135deg, var(--accent), var(--accent2))', boxShadow: '0 0 20px var(--glow)' }}
+            >
               <Heart size={16} />
-              Donate Now
+              Donate Now via UPI
             </a>
+            <p className="text-xs text-center" style={{ color: 'var(--text-muted)' }}>
+              Opens GPay, PhonePe, Paytm or any UPI app on your device
+            </p>
           </GlassCard>
         </ScrollReveal>
 
         {/* Hardware Donation */}
         <ScrollReveal delay={0.1}>
-          <GlassCard hoverGlow className="h-full">
+          <GlassCard hoverGlow className="h-full flex flex-col">
             <div className="flex items-center gap-3 mb-6">
               <div className="w-12 h-12 rounded-xl flex items-center justify-center text-2xl"
                 style={{ background: 'var(--accent-soft)' }}>🔧</div>
@@ -138,7 +146,7 @@ export default function ContributePage() {
               Have spare electronics, sensors, or robotics components? Donate them to RoboGenesis and watch students build something amazing with them.
             </p>
 
-            <div className="rounded-xl p-4 mb-6" style={{ background: 'var(--bg-muted)', border: '1px solid var(--border)' }}>
+            <div className="rounded-xl p-4 mb-6 flex-1" style={{ background: 'var(--bg-muted)', border: '1px solid var(--border)' }}>
               <p className="text-xs font-bold uppercase tracking-widest mb-2" style={{ color: 'var(--text-muted)' }}>Drop-off / Courier Address</p>
               <p className="text-sm font-medium" style={{ color: 'var(--text-primary)' }}>RoboGenesis Club</p>
               <p className="text-sm" style={{ color: 'var(--text-secondary)' }}>Bennett University, Plot No 8-11</p>
@@ -202,7 +210,7 @@ export default function ContributePage() {
           <p className="text-sm leading-relaxed mb-6" style={{ color: 'var(--text-secondary)' }}>
             RoboGenesis operates entirely on student passion and community support. We have no corporate funding — every component we use is either self-funded or donated. Your contribution directly enables students to build, learn, and compete at a national level.
           </p>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-left">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-left mb-6">
             {[
               { icon: <CheckCircle size={16} />, text: '100% goes to student projects' },
               { icon: <CheckCircle size={16} />, text: 'Acknowledgement on our website' },
@@ -214,14 +222,12 @@ export default function ContributePage() {
               </div>
             ))}
           </div>
-          <div className="mt-6">
-            <a href="mailto:robogenesis@bennett.edu.in?subject=Contribution%20Inquiry&body=Hi%20RoboGenesis%20Team%2C%0A%0AI%20am%20interested%20in%20contributing%20to%20your%20club."
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-bold text-white transition-all duration-200 hover:scale-105"
-              style={{ background: 'linear-gradient(135deg, var(--accent), var(--accent2))', boxShadow: '0 0 20px var(--glow)' }}>
-              <Mail size={16} />
-              Get in Touch
-            </a>
-          </div>
+          <a href="mailto:robogenesis@bennett.edu.in?subject=Contribution%20Inquiry"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-bold text-white transition-all duration-200 hover:scale-105"
+            style={{ background: 'linear-gradient(135deg, var(--accent), var(--accent2))', boxShadow: '0 0 20px var(--glow)' }}>
+            <Mail size={16} />
+            Get in Touch
+          </a>
         </GlassCard>
       </ScrollReveal>
 
