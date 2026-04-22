@@ -4,7 +4,12 @@ import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
 import { useState } from 'react'
+import emailjs from '@emailjs/browser'
 import GlassCard from '@/components/ui/GlassCard'
+
+const SERVICE_ID = 'service_hg47k3h'
+const TEMPLATE_ID = 'template_zuyc353'
+const PUBLIC_KEY = '-Fs-ycg0m42Gp2Qp'
 
 const contactSchema = z.object({
   name: z.string().min(1, 'Name is required'),
@@ -18,15 +23,34 @@ export { contactSchema }
 
 export default function ContactForm() {
   const [submitted, setSubmitted] = useState(false)
+  const [sending, setSending] = useState(false)
+  const [error, setError] = useState<string | null>(null)
 
   const { register, handleSubmit, formState: { errors }, reset } = useForm<ContactFormData>({
     resolver: zodResolver(contactSchema),
   })
 
-  const onSubmit = (data: ContactFormData) => {
-    console.log('Contact:', data)
-    setSubmitted(true)
-    reset()
+  const onSubmit = async (data: ContactFormData) => {
+    setSending(true)
+    setError(null)
+    try {
+      await emailjs.send(
+        SERVICE_ID,
+        TEMPLATE_ID,
+        {
+          from_name: data.name,
+          from_email: data.email,
+          message: data.message,
+        },
+        PUBLIC_KEY
+      )
+      setSubmitted(true)
+      reset()
+    } catch (err) {
+      setError('Failed to send message. Please try again or email us directly.')
+    } finally {
+      setSending(false)
+    }
   }
 
   if (submitted) {
@@ -74,10 +98,12 @@ export default function ContactForm() {
           {errors.message && <p className="mt-1 text-xs text-red-400">{errors.message.message}</p>}
         </div>
 
-        <button type="submit"
-          className="w-full min-h-[44px] text-white font-bold rounded-lg transition-all duration-200"
+        {error && <p className="text-xs text-red-400">{error}</p>}
+
+        <button type="submit" disabled={sending}
+          className="w-full min-h-[44px] text-white font-bold rounded-lg transition-all duration-200 disabled:opacity-60"
           style={{ background: 'linear-gradient(135deg, var(--accent), var(--accent2))', boxShadow: '0 0 16px var(--glow)' }}>
-          Send Message
+          {sending ? 'Sending...' : 'Send Message'}
         </button>
       </form>
     </GlassCard>
