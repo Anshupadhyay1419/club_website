@@ -1,11 +1,11 @@
-import { Heart, Cpu, Package, Mail, Shield, CheckCircle } from 'lucide-react'
+import { Cpu, Package, Mail, Shield, CheckCircle } from 'lucide-react'
 import GlassCard from '@/components/ui/GlassCard'
 import SectionHeading from '@/components/ui/SectionHeading'
 import ScrollReveal from '@/components/ui/ScrollReveal'
+import DonateButton from '@/components/contribute/DonateButton'
 
 const UPI_ID = '8178095270@upi'
 const UPI_NAME = 'RoboGenesis'
-const UPI_LINK = `upi://pay?pa=${UPI_ID}&pn=${encodeURIComponent(UPI_NAME)}&cu=INR`
 
 const hardwareWishlist = [
   { name: 'Raspberry Pi 5', category: 'Computing', priority: 'High', use: 'AI edge computing & vision projects' },
@@ -124,18 +124,8 @@ export default function ContributePage() {
               ))}
             </div>
 
-            {/* Donate Now — UPI deep link opens GPay/PhonePe/Paytm on mobile */}
-            <a
-              href={UPI_LINK}
-              className="w-full min-h-[44px] flex items-center justify-center gap-2 rounded-xl font-bold text-white transition-all duration-200 hover:scale-[1.02] mb-3"
-              style={{ background: 'linear-gradient(135deg, var(--accent), var(--accent2))', boxShadow: '0 0 20px var(--glow)' }}
-            >
-              <Heart size={16} />
-              Donate Now via UPI
-            </a>
-            <p className="text-xs text-center" style={{ color: 'var(--text-muted)' }}>
-              Opens GPay, PhonePe, Paytm or any UPI app on your device
-            </p>
+            {/* Donate Now — smart: mobile opens UPI app, desktop shows QR */}
+            <DonateButton />
           </GlassCard>
         </ScrollReveal>
 
