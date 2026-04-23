@@ -45,6 +45,28 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: 'Robogenesis – Innovating the Future',
   description: 'Robogenesis is a university tech club focused on AI, Robotics, and Innovation.',
+  metadataBase: new URL('https://www.robogenesissoai.in'),
+  openGraph: {
+    title: 'Robogenesis – Innovating the Future',
+    description: 'A student-led tech club at Bennett University focused on AI, Robotics, and Innovation.',
+    url: 'https://www.robogenesissoai.in',
+    siteName: 'RoboGenesis',
+    images: [
+      {
+        url: '/club_logo.jpeg',
+        width: 800,
+        height: 800,
+        alt: 'RoboGenesis Club Logo',
+      },
+    ],
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary',
+    title: 'Robogenesis – Innovating the Future',
+    description: 'A student-led tech club at Bennett University focused on AI, Robotics, and Innovation.',
+    images: ['/club_logo.jpeg'],
+  },
 }
 
 export const viewport = {
