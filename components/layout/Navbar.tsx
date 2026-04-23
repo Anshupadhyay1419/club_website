@@ -54,19 +54,20 @@ export default function Navbar() {
     >
       <nav className="max-w-7xl mx-auto px-3 lg:px-10 flex items-center justify-between h-full gap-2">
 
-        {/* University logo - smaller on mobile */}
+        {/* University logo */}
         <a href="https://www.bennett.edu.in/programs/b-tech-artificial-intelligence" target="_blank" rel="noopener noreferrer" aria-label="Bennett University" className="flex-shrink-0">
           <Image src="/uni_logo.jpg" alt="University logo" width={90} height={48}
             className="w-auto object-contain"
-            style={{ height: '32px' }}
+            style={{ height: '28px' }}
           />
         </a>
 
-        {/* Club logo + name - shrink text on mobile */}
-        <Link href="/" className="flex items-center gap-1.5 font-bold tracking-tight flex-shrink-0 min-w-0"
+        {/* Club logo + name — hide text on mobile */}
+        <Link href="/" className="flex items-center gap-1.5 font-bold tracking-tight flex-shrink-0"
           style={{ fontFamily: 'var(--font-space-grotesk)', color: 'var(--text-primary)' }}>
-          <Image src="/club_logo.jpeg" alt="RoboGenesis logo" width={32} height={32} className="rounded-full object-cover flex-shrink-0 md:w-10 md:h-10" />
-          <span className="text-[0.85rem] md:text-[1.1rem] truncate">RoboGenesis</span>
+          <Image src="/club_logo.jpeg" alt="RoboGenesis logo" width={28} height={28} className="rounded-full object-cover flex-shrink-0" style={{ width: '28px', height: '28px' }} />
+          <span className="hidden sm:inline text-[1.1rem]">RoboGenesis</span>
+          <span className="sm:hidden text-[0.85rem]">RoboGenesis</span>
         </Link>
 
         {/* ── PILL NAV with sliding cursor ── */}
