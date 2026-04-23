@@ -52,23 +52,27 @@ export default function Navbar() {
         height: '64px',
       }}
     >
-      <nav className="max-w-7xl mx-auto px-3 lg:px-10 flex items-center justify-between h-full gap-2">
+      <nav className="max-w-7xl mx-auto px-3 lg:px-10 flex items-center justify-between h-full">
 
-        {/* University logo */}
-        <a href="https://www.bennett.edu.in/programs/b-tech-artificial-intelligence" target="_blank" rel="noopener noreferrer" aria-label="Bennett University" className="flex-shrink-0">
-          <Image src="/uni_logo.jpg" alt="University logo" width={90} height={48}
-            className="w-auto object-contain"
-            style={{ height: '28px' }}
-          />
-        </a>
-
-        {/* Club logo + name — hide text on mobile */}
-        <Link href="/" className="flex items-center gap-1.5 font-bold tracking-tight flex-shrink-0"
-          style={{ fontFamily: 'var(--font-space-grotesk)', color: 'var(--text-primary)' }}>
-          <Image src="/club_logo.jpeg" alt="RoboGenesis logo" width={28} height={28} className="rounded-full object-cover flex-shrink-0" style={{ width: '28px', height: '28px' }} />
-          <span className="hidden sm:inline text-[1.1rem]">RoboGenesis</span>
-          <span className="sm:hidden text-[0.85rem]">RoboGenesis</span>
-        </Link>
+        {/* Left: University logo + Club logo */}
+        <div className="flex items-center gap-2 flex-shrink-0">
+          {/* University logo */}
+          <a href="https://www.bennett.edu.in/programs/b-tech-artificial-intelligence" target="_blank" rel="noopener noreferrer" aria-label="Bennett University">
+            <Image src="/uni_logo.jpg" alt="University logo" width={60} height={32}
+              className="w-auto object-contain"
+              style={{ height: '26px' }}
+            />
+          </a>
+          {/* Divider */}
+          <div className="w-px h-5 opacity-30" style={{ background: 'var(--border)' }} />
+          {/* Club logo + name */}
+          <Link href="/" className="flex items-center gap-1.5 font-bold tracking-tight"
+            style={{ fontFamily: 'var(--font-space-grotesk)', color: 'var(--text-primary)' }}>
+            <Image src="/club_logo.jpeg" alt="RoboGenesis logo" width={26} height={26} className="rounded-full object-cover flex-shrink-0" style={{ width: '26px', height: '26px' }} />
+            {/* Hide text on very small screens */}
+            <span className="hidden xs:inline md:inline text-[0.9rem] md:text-[1.1rem]">RoboGenesis</span>
+          </Link>
+        </div>
 
         {/* ── PILL NAV with sliding cursor ── */}
         <div className="hidden md:block relative">
@@ -122,13 +126,13 @@ export default function Navbar() {
         </div>
 
         {/* Mobile toggle */}
-        <div className="md:hidden flex items-center gap-1 flex-shrink-0">
+        <div className="md:hidden flex items-center gap-1 flex-shrink-0 ml-auto">
           <ThemeToggle />
-          <button className="p-1.5 min-h-[44px] min-w-[44px] flex items-center justify-center"
+          <button className="p-1 min-h-[40px] min-w-[40px] flex items-center justify-center"
             style={{ color: 'var(--text-secondary)' }}
             onClick={() => setMenuOpen(o => !o)}
             aria-label={menuOpen ? 'Close menu' : 'Open menu'}>
-            {menuOpen ? <X size={20} /> : <Menu size={20} />}
+            {menuOpen ? <X size={22} /> : <Menu size={22} />}
           </button>
         </div>
       </nav>
