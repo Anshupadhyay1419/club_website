@@ -49,6 +49,11 @@ export const metadata: Metadata = {
   verification: {
     google: 'saRyJVhUIahOC18ojk4Vt9McxCqDE-3p_4qtAYOwhKw',
   },
+  icons: {
+    icon: '/club_logo.jpeg',
+    shortcut: '/club_logo.jpeg',
+    apple: '/club_logo.jpeg',
+  },
   metadataBase: new URL('https://www.robogenesissoai.in'),
   openGraph: {
     title: 'Robogenesis – Innovating the Future',
