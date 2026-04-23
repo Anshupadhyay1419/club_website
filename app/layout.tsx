@@ -43,8 +43,9 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
-  title: 'Robogenesis – Innovating the Future',
-  description: 'Robogenesis is a university tech club focused on AI, Robotics, and Innovation.',
+  title: 'Robogenesis – Innovating the Future | Bennett University Tech Club',
+  description: 'RoboGenesis is a student-led tech club at Bennett University, Greater Noida focused on AI, Robotics, IoT, and Innovation. Join us to build real-world projects.',
+  keywords: ['RoboGenesis', 'Bennett University', 'robotics club', 'AI club', 'tech club', 'Greater Noida', 'robotics', 'artificial intelligence', 'IoT', 'student club'],
   metadataBase: new URL('https://www.robogenesissoai.in'),
   openGraph: {
     title: 'Robogenesis – Innovating the Future',
