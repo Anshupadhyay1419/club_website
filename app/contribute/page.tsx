@@ -158,6 +158,8 @@ export default function ContributePage() {
               <p className="text-sm" style={{ color: 'var(--text-secondary)' }}>Bennett University, Plot No 8-11</p>
               <p className="text-sm" style={{ color: 'var(--text-secondary)' }}>Tech Zone II, Greater Noida</p>
               <p className="text-sm" style={{ color: 'var(--text-secondary)' }}>Uttar Pradesh – 201310</p>
+              <p className="text-sm" style={{ color: 'var(--text-secondary)' }}>Phone : +91 8178095270</p>
+              <p className="text-sm" style={{ color: 'var(--text-secondary)' }}>Name : Swarnim Chaudhary</p>
             </div>
 
             <div className="flex items-start gap-3 p-4 rounded-xl mb-6"
