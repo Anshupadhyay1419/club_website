@@ -43,14 +43,12 @@ export default function Navbar() {
       style={{
         background: 'color-mix(in srgb, var(--bg-card) 90%, transparent)',
         borderBottom: '1px solid var(--border)',
-        height: '64px',
         width: '100%',
         maxWidth: '100vw',
-        overflow: 'hidden',
       }}
     >
       {/* ── DESKTOP NAV ── */}
-      <nav className="hidden md:flex max-w-7xl mx-auto px-6 lg:px-10 items-center justify-between h-full">
+      <nav className="hidden md:flex max-w-7xl mx-auto px-6 lg:px-10 items-center justify-between" style={{ height: '64px' }}>
         {/* University logo */}
         <a href="https://www.bennett.edu.in/" target="_blank" rel="noopener noreferrer" aria-label="Bennett University" className="mr-6">
           <Image src="/uni_logo.jpg" alt="University logo" width={90} height={48} className="w-auto object-contain" style={{ height: '44px' }} />
@@ -90,7 +88,7 @@ export default function Navbar() {
       </nav>
 
       {/* ── MOBILE NAV ── */}
-      <nav className="md:hidden flex items-center justify-between h-full w-full" style={{ padding: '0 12px' }}>
+      <nav className="md:hidden flex items-center justify-between w-full" style={{ height: '64px', padding: '0 12px' }}>
         {/* Left: both logos */}
         <div className="flex items-center gap-2">
           <a href="https://www.bennett.edu.in/" target="_blank" rel="noopener noreferrer" aria-label="Bennett University">
