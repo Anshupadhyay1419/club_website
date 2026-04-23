@@ -1,7 +1,7 @@
 ﻿'use client'
 
 import Image from 'next/image'
-import { useState, useRef, useEffect } from 'react'
+import { useState, useRef } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { AnimatePresence, motion } from 'framer-motion'
@@ -32,16 +32,10 @@ export default function Navbar() {
     if (!pill) return
     const pillRect = pill.getBoundingClientRect()
     const tabRect = tab.getBoundingClientRect()
-    setCursor({
-      left: tabRect.left - pillRect.left,
-      width: tabRect.width,
-      opacity: 1,
-    })
+    setCursor({ left: tabRect.left - pillRect.left, width: tabRect.width, opacity: 1 })
   }
 
-  const handleMouseLeave = () => {
-    setCursor(prev => ({ ...prev, opacity: 0 }))
-  }
+  const handleMouseLeave = () => setCursor(prev => ({ ...prev, opacity: 0 }))
 
   return (
     <header
@@ -50,86 +44,69 @@ export default function Navbar() {
         background: 'color-mix(in srgb, var(--bg-card) 90%, transparent)',
         borderBottom: '1px solid var(--border)',
         height: '64px',
+        width: '100%',
+        maxWidth: '100vw',
+        overflow: 'hidden',
       }}
     >
-      <nav className="max-w-7xl mx-auto px-3 lg:px-10 flex items-center justify-between h-full">
-
-        {/* Left: University logo + Club logo */}
-        <div className="flex items-center gap-2 flex-shrink-0">
-          {/* University logo */}
-          <a href="https://www.bennett.edu.in/programs/b-tech-artificial-intelligence" target="_blank" rel="noopener noreferrer" aria-label="Bennett University">
-            <Image src="/uni_logo.jpg" alt="University logo" width={60} height={32}
-              className="w-auto object-contain"
-              style={{ height: '26px' }}
-            />
-          </a>
-          {/* Divider */}
-          <div className="w-px h-5 opacity-30" style={{ background: 'var(--border)' }} />
-          {/* Club logo + name */}
-          <Link href="/" className="flex items-center gap-1.5 font-bold tracking-tight"
-            style={{ fontFamily: 'var(--font-space-grotesk)', color: 'var(--text-primary)' }}>
-            <Image src="/club_logo.jpeg" alt="RoboGenesis logo" width={26} height={26} className="rounded-full object-cover flex-shrink-0" style={{ width: '26px', height: '26px' }} />
-            {/* Hide text on very small screens */}
-            <span className="hidden xs:inline md:inline text-[0.9rem] md:text-[1.1rem]">RoboGenesis</span>
-          </Link>
-        </div>
-
-        {/* ── PILL NAV with sliding cursor ── */}
-        <div className="hidden md:block relative">
-          <ul
-            ref={pillRef}
-            className="relative flex items-center list-none p-1 rounded-full"
-            style={{
-              border: '1px solid var(--border)',
-              background: 'color-mix(in srgb, var(--bg-card) 70%, transparent)',
-              backdropFilter: 'blur(16px)',
-            }}
-            onMouseLeave={handleMouseLeave}
-          >
-            {/* Sliding cursor */}
-            <li
-              aria-hidden="true"
-              className="absolute top-1 rounded-full pointer-events-none transition-all duration-200"
-              style={{
-                left: cursor.left,
-                width: cursor.width,
-                height: 'calc(100% - 8px)',
-                opacity: cursor.opacity,
-                background: 'linear-gradient(135deg, var(--accent), var(--accent2))',
-                boxShadow: '0 0 16px var(--glow)',
-                transition: 'left 0.22s cubic-bezier(0.16,1,0.3,1), width 0.22s cubic-bezier(0.16,1,0.3,1), opacity 0.15s ease',
-              }}
-            />
+      {/* ── DESKTOP NAV ── */}
+      <nav className="hidden md:flex max-w-7xl mx-auto px-6 lg:px-10 items-center justify-between h-full">
+        {/* University logo */}
+        <a href="https://www.bennett.edu.in/" target="_blank" rel="noopener noreferrer" aria-label="Bennett University" className="mr-6">
+          <Image src="/uni_logo.jpg" alt="University logo" width={90} height={48} className="w-auto object-contain" style={{ height: '44px' }} />
+        </a>
+        {/* Club logo + name */}
+        <Link href="/" className="flex items-center gap-2 font-bold tracking-tight flex-shrink-0"
+          style={{ fontFamily: 'var(--font-space-grotesk)', color: 'var(--text-primary)', fontSize: '1.1rem' }}>
+          <Image src="/club_logo.jpeg" alt="RoboGenesis logo" width={40} height={40} className="rounded-full object-cover" />
+          RoboGenesis
+        </Link>
+        {/* Pill nav */}
+        <div className="relative">
+          <ul ref={pillRef} className="relative flex items-center list-none p-1 rounded-full"
+            style={{ border: '1px solid var(--border)', background: 'color-mix(in srgb, var(--bg-card) 70%, transparent)', backdropFilter: 'blur(16px)' }}
+            onMouseLeave={handleMouseLeave}>
+            <li aria-hidden="true" className="absolute top-1 rounded-full pointer-events-none"
+              style={{ left: cursor.left, width: cursor.width, height: 'calc(100% - 8px)', opacity: cursor.opacity,
+                background: 'linear-gradient(135deg, var(--accent), var(--accent2))', boxShadow: '0 0 16px var(--glow)',
+                transition: 'left 0.22s cubic-bezier(0.16,1,0.3,1), width 0.22s cubic-bezier(0.16,1,0.3,1), opacity 0.15s ease' }} />
             {navLinks.map(({ href, label }) => (
               <li key={href} onMouseEnter={handleMouseEnter} className="relative z-10">
-                <Link
-                  href={href}
-                  className="block px-4 py-2 text-[13px] font-medium tracking-wide uppercase min-h-[36px] flex items-center whitespace-nowrap transition-none"
-                  style={{
-                    color: pathname === href ? 'var(--accent)' : 'var(--text-secondary)',
-                  }}
-                >
+                <Link href={href} className="block px-4 py-2 text-[13px] font-medium tracking-wide uppercase min-h-[36px] flex items-center whitespace-nowrap"
+                  style={{ color: pathname === href ? 'var(--accent)' : 'var(--text-secondary)' }}>
                   {label}
                 </Link>
               </li>
             ))}
           </ul>
         </div>
-
-        {/* CTA & Theme Toggle */}
-        <div className="hidden md:flex items-center gap-2">
+        {/* CTA */}
+        <div className="flex items-center gap-2">
           <ThemeToggle />
-          <Link href="/contact"
-            className="inline-flex items-center px-5 py-2 rounded-full text-[13px] font-bold text-white btn-gradient min-h-[36px]">
+          <Link href="/contact" className="inline-flex items-center px-5 py-2 rounded-full text-[13px] font-bold text-white btn-gradient min-h-[36px]">
             Join Us
           </Link>
         </div>
+      </nav>
 
-        {/* Mobile toggle */}
-        <div className="md:hidden flex items-center gap-1 flex-shrink-0 ml-auto">
+      {/* ── MOBILE NAV ── */}
+      <nav className="md:hidden flex items-center justify-between h-full w-full" style={{ padding: '0 12px' }}>
+        {/* Left: both logos */}
+        <div className="flex items-center gap-2">
+          <a href="https://www.bennett.edu.in/" target="_blank" rel="noopener noreferrer" aria-label="Bennett University">
+            <Image src="/uni_logo.jpg" alt="University logo" width={55} height={30} className="w-auto object-contain" style={{ height: '28px' }} />
+          </a>
+          <div className="w-px h-4 opacity-20" style={{ background: 'var(--text-muted)' }} />
+          <Link href="/" className="flex items-center gap-1.5 font-bold" style={{ fontFamily: 'var(--font-space-grotesk)', color: 'var(--text-primary)' }}>
+            <Image src="/club_logo.jpeg" alt="RoboGenesis logo" width={28} height={28} className="rounded-full object-cover" style={{ width: '28px', height: '28px' }} />
+            <span style={{ fontSize: '0.85rem' }}>RoboGenesis</span>
+          </Link>
+        </div>
+        {/* Right: theme + hamburger */}
+        <div className="flex items-center" style={{ gap: '2px' }}>
           <ThemeToggle />
-          <button className="p-1 min-h-[40px] min-w-[40px] flex items-center justify-center"
-            style={{ color: 'var(--text-secondary)' }}
+          <button
+            style={{ color: 'var(--text-secondary)', padding: '8px', minWidth: '40px', minHeight: '40px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
             onClick={() => setMenuOpen(o => !o)}
             aria-label={menuOpen ? 'Close menu' : 'Open menu'}>
             {menuOpen ? <X size={22} /> : <Menu size={22} />}
@@ -137,7 +114,7 @@ export default function Navbar() {
         </div>
       </nav>
 
-      {/* Mobile menu */}
+      {/* Mobile dropdown menu */}
       <AnimatePresence>
         {menuOpen && (
           <motion.div
