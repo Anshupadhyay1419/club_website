@@ -52,18 +52,21 @@ export default function Navbar() {
         height: '64px',
       }}
     >
-      <nav className="max-w-7xl mx-auto px-4 lg:px-10 flex items-center justify-between h-full">
+      <nav className="max-w-7xl mx-auto px-3 lg:px-10 flex items-center justify-between h-full gap-2">
 
-        {/* University logo - hidden on mobile */}
-        <a href="https://www.bennett.edu.in/programs/b-tech-artificial-intelligence" target="_blank" rel="noopener noreferrer" aria-label="Bennett University" className="hidden md:block mr-8">
-          <Image src="/uni_logo.jpg" alt="University logo" width={90} height={48} className="w-auto object-contain flex-shrink-0" style={{ height: '44px' }} />
+        {/* University logo - smaller on mobile */}
+        <a href="https://www.bennett.edu.in/programs/b-tech-artificial-intelligence" target="_blank" rel="noopener noreferrer" aria-label="Bennett University" className="flex-shrink-0">
+          <Image src="/uni_logo.jpg" alt="University logo" width={90} height={48}
+            className="w-auto object-contain"
+            style={{ height: '32px' }}
+          />
         </a>
 
-        {/* Club logo + name */}
-        <Link href="/" className="flex items-center gap-2 font-bold tracking-tight flex-shrink-0"
-          style={{ fontFamily: 'var(--font-space-grotesk)', color: 'var(--text-primary)', fontSize: '1.1rem' }}>
-          <Image src="/club_logo.jpeg" alt="RoboGenesis logo" width={36} height={36} className="rounded-full object-cover" />
-          <span>RoboGenesis</span>
+        {/* Club logo + name - shrink text on mobile */}
+        <Link href="/" className="flex items-center gap-1.5 font-bold tracking-tight flex-shrink-0 min-w-0"
+          style={{ fontFamily: 'var(--font-space-grotesk)', color: 'var(--text-primary)' }}>
+          <Image src="/club_logo.jpeg" alt="RoboGenesis logo" width={32} height={32} className="rounded-full object-cover flex-shrink-0 md:w-10 md:h-10" />
+          <span className="text-[0.85rem] md:text-[1.1rem] truncate">RoboGenesis</span>
         </Link>
 
         {/* ── PILL NAV with sliding cursor ── */}
@@ -118,9 +121,9 @@ export default function Navbar() {
         </div>
 
         {/* Mobile toggle */}
-        <div className="md:hidden flex items-center gap-2">
+        <div className="md:hidden flex items-center gap-1 flex-shrink-0">
           <ThemeToggle />
-          <button className="p-2 min-h-[44px] min-w-[44px] flex items-center justify-center"
+          <button className="p-1.5 min-h-[44px] min-w-[44px] flex items-center justify-center"
             style={{ color: 'var(--text-secondary)' }}
             onClick={() => setMenuOpen(o => !o)}
             aria-label={menuOpen ? 'Close menu' : 'Open menu'}>
