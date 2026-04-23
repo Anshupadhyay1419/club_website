@@ -52,18 +52,18 @@ export default function Navbar() {
         height: '64px',
       }}
     >
-      <nav className="max-w-7xl mx-auto px-6 lg:px-10 flex items-center justify-between h-full">
+      <nav className="max-w-7xl mx-auto px-4 lg:px-10 flex items-center justify-between h-full">
 
-        {/* University logo */}
-        <a href="https://www.bennett.edu.in/programs/b-tech-artificial-intelligence" target="_blank" rel="noopener noreferrer" aria-label="Bennett University" className="mr-8">
+        {/* University logo - hidden on mobile */}
+        <a href="https://www.bennett.edu.in/programs/b-tech-artificial-intelligence" target="_blank" rel="noopener noreferrer" aria-label="Bennett University" className="hidden md:block mr-8">
           <Image src="/uni_logo.jpg" alt="University logo" width={90} height={48} className="w-auto object-contain flex-shrink-0" style={{ height: '44px' }} />
         </a>
 
         {/* Club logo + name */}
         <Link href="/" className="flex items-center gap-2 font-bold tracking-tight flex-shrink-0"
           style={{ fontFamily: 'var(--font-space-grotesk)', color: 'var(--text-primary)', fontSize: '1.1rem' }}>
-          <Image src="/club_logo.jpeg" alt="RoboGenesis logo" width={40} height={40} className="rounded-full object-cover" />
-          RoboGenesis
+          <Image src="/club_logo.jpeg" alt="RoboGenesis logo" width={36} height={36} className="rounded-full object-cover" />
+          <span>RoboGenesis</span>
         </Link>
 
         {/* ── PILL NAV with sliding cursor ── */}
