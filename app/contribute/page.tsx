@@ -1,4 +1,4 @@
-import { Cpu, Package, Mail, Shield, CheckCircle, Heart } from 'lucide-react'
+import { Cpu, Package, Mail, Shield, CheckCircle, Heart, Wrench, Users, Trophy, Zap } from 'lucide-react'
 import GlassCard from '@/components/ui/GlassCard'
 import SectionHeading from '@/components/ui/SectionHeading'
 import ScrollReveal from '@/components/ui/ScrollReveal'
@@ -19,10 +19,10 @@ const hardwareWishlist = [
 ]
 
 const impactStats = [
-  { value: '2+', label: 'Projects Built', icon: '🤖' },
-  { value: '50+', label: 'Students Impacted', icon: '🎓' },
-  { value: '1', label: 'Hackathon Hosted', icon: '🏆' },
-  { value: '∞', label: 'Ideas in Pipeline', icon: '💡' },
+  { value: '2+', label: 'Projects Built', icon: Wrench },
+  { value: '50+', label: 'Students Impacted', icon: Users },
+  { value: '1', label: 'Hackathon Hosted', icon: Trophy },
+  { value: '∞', label: 'Ideas in Pipeline', icon: Zap },
 ]
 
 const priorityColor: Record<string, string> = {
@@ -66,7 +66,12 @@ export default function ContributePage() {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-20">
           {impactStats.map((stat, i) => (
             <GlassCard key={i} className="text-center py-6">
-              <div className="text-3xl mb-2">{stat.icon}</div>
+              <div className="flex justify-center mb-3">
+                <div className="w-10 h-10 rounded-xl flex items-center justify-center"
+                  style={{ background: 'var(--accent-soft)' }}>
+                  <stat.icon size={20} style={{ color: 'var(--accent)' }} />
+                </div>
+              </div>
               <div className="text-2xl font-black mb-1" style={{ color: 'var(--accent)' }}>{stat.value}</div>
               <div className="text-xs font-medium" style={{ color: 'var(--text-muted)' }}>{stat.label}</div>
             </GlassCard>
@@ -204,8 +209,11 @@ export default function ContributePage() {
       {/* Why Contribute */}
       <ScrollReveal>
         <GlassCard className="text-center max-w-3xl mx-auto">
-          <div className="text-4xl mb-4">🙏</div>
-          <h2 className="text-2xl font-bold mb-3 font-[var(--font-space-grotesk)]" style={{ color: 'var(--text-primary)' }}>
+          <div className="flex justify-center mb-4">
+            <div className="w-12 h-12 rounded-xl flex items-center justify-center" style={{ background: 'var(--accent-soft)' }}>
+              <Heart size={24} style={{ color: 'var(--accent)' }} />
+            </div>
+          </div>          <h2 className="text-2xl font-bold mb-3 font-[var(--font-space-grotesk)]" style={{ color: 'var(--text-primary)' }}>
             Why Your Contribution Matters
           </h2>
           <p className="text-sm leading-relaxed mb-6" style={{ color: 'var(--text-secondary)' }}>
