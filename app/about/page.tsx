@@ -38,9 +38,9 @@ export default function AboutPage() {
         <GlassCard className="mb-16 max-w-4xl">
           <h3 className="text-xl font-bold mb-3 font-[var(--font-space-grotesk)]" style={{ color: 'var(--accent)' }}>Our Mission</h3>
           <p className="leading-relaxed mb-6" style={{ color: 'var(--text-secondary)' }}>
-            RoboGenesis is a student-led tech club dedicated to pushing the boundaries of AI, Robotics, and Innovation.
-            We believe that the engineers of tomorrow are built today — through hands-on projects, collaborative learning,
-            and a relentless drive to solve real-world problems.
+            RoboGenesis is a student-driven tech club focused on learning by building. We aim to create a space where students can explore AI, robotics, and emerging technologies through hands-on projects, workshops, and collaboration.
+
+            Our goal is simple: help members develop practical skills, think critically, and gain the confidence to solve real-world problems.
           </p>
           <h3 className="text-xl font-bold mb-3 font-[var(--font-space-grotesk)]" style={{ color: 'var(--accent)' }}>Our Vision</h3>
           <p className="leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
