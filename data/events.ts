@@ -7,6 +7,7 @@ export const events: Event[] = [
     title: 'Deep Sight',
     description: 'A 18-hour hackathon focused on computer vision and AI. Teams will build intelligent vision systems — from object detection to real-time scene understanding. Open to all university students.',
     date: '2026-04-24T09:00:00.000Z',
+    image: 'https://res.cloudinary.com/dfkbt26ga/image/upload/v1777271160/team_e1gltn.jpg',
     isPast: true,
     registrationLink: 'https://unstop.com/o/ufK6vyn?lb=o3OgcqGt&utm_medium=Share&utm_source=tslmqvdo67994&utm_campaign=Online_coding_challenge',
     websiteLink: 'https://deep-sight.vercel.app/deepsight.html',
