@@ -28,7 +28,7 @@ export const galleryImages: GalleryImage[] = [
   {
     id: 'g4',
     src: 'https://res.cloudinary.com/dfkbt26ga/image/upload/v1777270227/event_2_dlxybl.jpg',
-    alt: 'RoboGenesis workshop',
+    alt: 'Hackathon 2026',
     caption: 'Deep sight Hackathon 24th April 2026',
     width: 1200,
     height: 900,
@@ -36,7 +36,7 @@ export const galleryImages: GalleryImage[] = [
   {
     id: 'g5',
     src: 'https://res.cloudinary.com/dfkbt26ga/image/upload/v1777270237/event_1_qgm97i.jpg',
-    alt: 'RoboGenesis workshop',
+    alt: 'Hackathon 2026',
     caption: 'Deep sight Hackathon 24th April 2026',
     width: 1200,
     height: 900,
@@ -44,7 +44,7 @@ export const galleryImages: GalleryImage[] = [
   {
     id: 'g6',
     src: 'https://res.cloudinary.com/dfkbt26ga/image/upload/v1777270230/event_3_bgxuf3.jpg',
-    alt: 'RoboGenesis workshop',
+    alt: 'Hackathon 2026',
     caption: 'Deep sight Hackathon 24th April 2026',
     width: 1200,
     height: 900,
@@ -52,7 +52,15 @@ export const galleryImages: GalleryImage[] = [
   {
     id: 'g7',
     src: 'https://res.cloudinary.com/dfkbt26ga/image/upload/v1777270233/event_4_sycnuq.jpg',
-    alt: 'RoboGenesis workshop',
+    alt: 'Hackathon 2026',
+    caption: 'Deep sight Hackathon 24th April 2026',
+    width: 1200,
+    height: 900,
+  },
+  {
+    id: 'g8',
+    src: 'https://res.cloudinary.com/dfkbt26ga/image/upload/v1786630956/sir_hqku5h.heic',
+    alt: 'Hackathon 2026',
     caption: 'Deep sight Hackathon 24th April 2026',
     width: 1200,
     height: 900,
