@@ -59,7 +59,7 @@ export const galleryImages: GalleryImage[] = [
   },
   {
     id: 'g8',
-    src: 'https://res.cloudinary.com/dfkbt26ga/image/upload/v1787135784/jk_hfsyxy.jpg',
+    src: 'https://res.cloudinary.com/dfkbt26ga/image/upload/v1787136285/jk_a2skei.jpg',
     alt: 'Hackathon 2026',
     caption: 'Deep sight Hackathon 24th April 2026',
     width: 1200,
@@ -70,7 +70,7 @@ export const galleryImages: GalleryImage[] = [
     src: 'https://res.cloudinary.com/dfkbt26ga/image/upload/v1786631663/Screenshot_2026-08-13_200305_sno0vs.jpg',
     alt: 'Hackathon 2026',
     caption: 'Deep sight Hackathon 24th April 2026',
-    width: 800,
-    height: 600,
+    width: 1200,
+    height: 900,
   },
 ]
