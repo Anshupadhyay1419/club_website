@@ -85,8 +85,10 @@ export default function HeroSection() {
           >
             Explore Projects
           </Link>
-          <Link
-            href="/contact"
+          <a
+            href="https://forms.cloud.microsoft/r/e3d9DqV80h?origin=lprLink"
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex items-center justify-center px-8 py-3.5 rounded-full text-[0.9rem] font-normal min-h-[44px] transition-all duration-300"
             style={{
               background: 'linear-gradient(135deg, rgba(77,142,255,0.8), rgba(167,139,250,0.8))',
@@ -95,7 +97,7 @@ export default function HeroSection() {
             }}
           >
             Join the Club
-          </Link>
+          </a>
         </motion.div>
       </div>
 

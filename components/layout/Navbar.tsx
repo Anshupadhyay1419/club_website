@@ -81,9 +81,9 @@ export default function Navbar() {
         {/* CTA */}
         <div className="flex items-center gap-2">
           <ThemeToggle />
-          <Link href="/contact" className="inline-flex items-center px-5 py-2 rounded-full text-[13px] font-bold text-white btn-gradient min-h-[36px]">
+          <a href="https://forms.cloud.microsoft/r/e3d9DqV80h?origin=lprLink" target="_blank" rel="noopener noreferrer" className="inline-flex items-center px-5 py-2 rounded-full text-[13px] font-bold text-white btn-gradient min-h-[36px]">
             Join Us
-          </Link>
+          </a>
         </div>
       </nav>
 
