@@ -68,7 +68,7 @@ export const teamMembers: TeamMember[] = [
     id: 't8',
     name: 'Jiwak Kumar',
     role: 'Media Sub Head',
-    photo: 'https://res.cloudinary.com/dfkbt26ga/image/upload/v1776151311/jiwak_lxheoi.jpg',
+    photo: 'https://res.cloudinary.com/dfkbt26ga/image/upload/v1787136819/Screenshot_2026-08-19_162212_fn8c8l.png',
     skills: [],
     linkedinUrl: '',
     githubUrl: '',
