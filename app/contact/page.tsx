@@ -120,7 +120,9 @@ export default function ContactPage() {
                 Are you a Bennett University student passionate about AI, Robotics, or Innovation? We'd love to have you on the team!
               </p>
               <a
-                href="mailto:robogenesis@bennett.edu.in?subject=Join%20RoboGenesis&body=Hi%20RoboGenesis%20Team%2C%0A%0AI%20am%20interested%20in%20joining%20the%20club.%0A%0AName%3A%0ADepartment%3A%0ASemester%3A%0ASkills%3A"
+                href="https://forms.cloud.microsoft/r/e3d9DqV80h?origin=lprLink"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-bold min-h-[44px] transition-all duration-200 hover:scale-105"
                 style={{ border: '1px solid var(--accent)', color: 'var(--accent)', background: 'var(--accent-soft)' }}
               >
